@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body dir="rtl">
+    <div class="form-root">
+        <div class="form-nav">
+            <div class="nav-button start selected">
+                ✈ رزرو
+            </div>
+            <div class="nav-button end" onclick="window.location = '/my-trips.html'">
+                🕮 سفر های من
+            </div>
+        </div>
+        <div class="form-body">
+            <form>
+                <label for="from">از</label><input id="from" type="text">
+                <label for="to">به</label><input id="to" type="text">
+                <label for="type">نوع</label><select id="type">
+                    <option value="یک طرفه">یک طرفه</option>
+                    <option value="دو طرفه">دو طرفه</option>
+                </select>
+                <label for="date-start">تاریخ رفت</label><input type="date" id="date-start">
+                <span id="end-group">
+                    <label for="date-end">تاریخ برگشت</label><input type="date" id="date-end">
+                </span>
+                <span id="show-flights">🛪 نمایش پرواز ها</span>
+            </form>
+        </div>
+    </div>
+    <script>
+        const typeInput = document.getElementById('type');
+        typeInput.value = 'دو طرفه';
+        typeInput.onchange = () => {
+            document.getElementById('end-group').hidden = typeInput.value === 'یک طرفه';
+        };
+        document.getElementById('show-flights').onclick = () => {
+            const data = {
+                from: document.getElementById('from').value,
+                to: document.getElementById('to').value,
+                type: document.getElementById('type').value,
+                date_start: document.getElementById('date-start').value,
+                date_end: document.getElementById('date-end').value,
+            };
+            sessionStorage.setItem('search-query', JSON.stringify(data));
+            window.location = '/flights.html';
+        };
+    </script>
+</body>
+
+</html>
