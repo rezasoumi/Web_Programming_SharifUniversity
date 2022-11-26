@@ -11,7 +11,7 @@
             <div class="nav-button start selected">
                 ✈ رزرو
             </div>
-            <div class="nav-button end" onclick="window.location = '/my-trips.html'">
+            <div class="nav-button end" id="my-trips">
                 🕮 سفر های من
             </div>
         </div>
@@ -47,6 +47,13 @@
             };
             sessionStorage.setItem('search-query', JSON.stringify(data));
             window.location = '/flights.html';
+        };
+        document.getElementById('my-trips').onclick = () => {
+            if (sessionStorage.getItem('username')) {
+                window.location = '/dashboard.html';        
+            } else {
+                window.location = '/login.html';
+            }
         };
     </script>
 </body>
