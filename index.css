@@ -19,6 +19,18 @@ body {
     flex-direction: row;
 }
 
+input {
+    padding: 0.5rem;
+}
+
+.inp-gp-right {
+    border-radius: 0 1rem 1rem 0;
+}
+
+.inp-gp-left {
+    border-radius: 1rem 0 0 1rem;
+}
+
 .nav-button {
     flex-grow: 1;
     text-align: center;
