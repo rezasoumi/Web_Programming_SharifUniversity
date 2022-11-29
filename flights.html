@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="./FlightsCSS.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Query-Flights</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css">
+</head>
+
+<html>
+<body>
+
+<h1>The Related Flights</h1>
+<div class="data"></div>
+
+<script>
+    var existingFlights = [
+                {from:"tehran", to:"boston", type:"return", date_start:"2023/1/10", date_end:"2028/8/1", time_start:"21:01", time_end:"1:00", flight_duration:"15", stop_num:"2", economy_price:"554,297,000", business_price:"1,641,100,000"},
+                {from:"brazil", to:"abadan", type:"return", date_start:"2022/9/1", date_end:"2022/10/1", time_start:"13:01", time_end:"8:00", flight_duration:"21", stop_num:"3", economy_price:"924,287,000", business_price:"10,341,100,000"},
+                {from:"newyork", to:"tehran", type:"return", date_start:"2023/9/1", date_end:"2023/10/1", time_start:"24:01", time_end:"10:00", flight_duration:"10", stop_num:"1", economy_price:"654,287,000", business_price:"2,341,100,000"},
+    ];
+    const requiredFlight = JSON.parse(sessionStorage.getItem("search-query"));
+    
+    /* TEST
+    function query(item){ 
+        return (item.from == "newyork" && 
+               item.to == "tehran" && 
+               item.type == "return" && 
+               item.date_start == "2023/9/1" && 
+               item.date_end == "2023/10/1") 
+               || 
+               (item.from == "brazil" && 
+               item.to == "abadan" && 
+               item.type == "return" && 
+               item.date_start == "2022/9/1" && 
+               item.date_end == "2022/10/1");
+    }
+    */
+    
+    function query(item){ 
+        return item.from == requiredFlight.from && 
+               item.to == requiredFlight.to && 
+               item.type == requiredFlight.type && 
+               item.date_start == requiredFlight.date_start && 
+               item.date_end == requiredFlight.date_end;
+    }
+    
+    var desiredFlights = existingFlights.filter(query);
+
+    console.log(desiredFlights);
+    const dataElement = document.querySelector('.data');
+    desiredFlights.forEach(item => {
+    dataElement.insertAdjacentHTML('afterbegin', `
+        <div class="bording-pass">
+            <div class="card card-top">
+                <span class="">Lowest fare <span>•</span></span>
+                <span class="">Qsuite <span></span></span>
+            </div>
+            <div class="card card-left">
+                <div class="source">
+                    <div class="time">${item.time_start}</div>
+                    <div class="city">${item.from}</div>
+                </div>
+                <div class="flight-median">___________________</div>
+                <div class="flight-median">
+                    <div>
+                        <div class="mx-1">
+                            <img class="op-logo-space" src="https://www.qatarairways.com/content/dam/images/icons/flight/ic_nav_qatar_airways.svg" alt="QR">
+                        </div>
+                        <div>${item.stop_num} Stop, ${item.flight_duration}h</div>
+                    </div>
+                </div>
+                <div class="flight-median">___________________</div>
+                <div class="destination">
+                    <div class="time">${item.time_end}</div>
+                    <div class="city">${item.to}</div>
+                </div>
+            </div>
+            <div class="card card-buttom">
+                <div class="card-row">
+                    <a href="">Flight Details</a>
+                </div>
+            </div>
+
+            <div class="card card-footer">
+                <div class="card card-price">
+                    <a href="javascript: void(0)" aria-label="Economy <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.economy_price}">
+                        <h5><span>Economy</span></h5>
+                        <h3>
+                            <span><span>IRR</span>&nbsp;${item.economy_price}</span>
+                        </h3>
+                    </a>
+                </div>
+                <div class="card card-price">
+                    <a href="javascript: void(0)" aria-label="Business <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.business_price}">
+                        <h5>
+                            <span>Business</span></h5>
+                            <h3><span>
+                                <span>IRR</span>&nbsp;${item.business_price}</span>
+                            </h3>
+                        </a>
+                </div>
+            </div>
+        </div>
+    `)});
+</script>
+
+</body>
+</html>
