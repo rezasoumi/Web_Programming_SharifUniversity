@@ -1,53 +1,53 @@
 body {
-    background-image: url(/main-background.jpeg);
-    background-size: cover;
+  background-image: url(main-background.jpeg);
+  background-size: cover;
 }
 
 .form-root {
-    width: 60vw;
-    height: 20vh;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+  width: 60vw;
+  height: 20vh;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .form-nav {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .nav-button {
-    flex-grow: 1;
-    text-align: center;
-    background-color: rebeccapurple;
-    color: white;
-    padding: 2rem;
+  flex-grow: 1;
+  text-align: center;
+  background-color: rebeccapurple;
+  color: white;
+  padding: 2rem;
 }
 
 .form-body {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 0 0 1rem 1rem;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0 0 1rem 1rem;
 }
 
 .nav-button.start {
-    border-top-right-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .nav-button.end {
-    border-top-left-radius: 1rem;
+  border-top-left-radius: 1rem;
 }
 
 .nav-button.selected {
-    background-color: white;
-    color: rebeccapurple;
+  background-color: white;
+  color: rebeccapurple;
 }
 
 #show-flights {
-    background-color: orange;
-    padding: 1rem;
-    border-radius: 0.75rem;
+  background-color: orange;
+  padding: 1rem;
+  border-radius: 0.75rem;
 }
