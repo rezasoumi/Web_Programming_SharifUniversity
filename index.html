@@ -11,31 +11,30 @@
             <div class="nav-button start selected">
                 ✈ رزرو
             </div>
-            <div class="nav-button end" onclick="window.location = '/my-trips.html'">
+            <div class="nav-button end" id="my-trips">
                 🕮 سفر های من
             </div>
         </div>
         <div class="form-body">
             <form>
-                <label for="from">از</label><input id="from" type="text">
-                <label for="to">به</label><input id="to" type="text">
+                <input id="from" class="inp-gp-right" list="from-list" type="text" placeholder="از" ><input
+                    id="to" list="to-list" type="text" class="inp-gp-left" placeholder="به">
+                <datalist id="from-list"></datalist>
+                <datalist id="to-list"></datalist>
                 <label for="type">نوع</label><select id="type">
-                    <option value="یک طرفه">یک طرفه</option>
-                    <option value="دو طرفه">دو طرفه</option>
+                    <option value="one-way">یک طرفه</option>
+                    <option value="return">دو طرفه</option>
                 </select>
-                <label for="date-start">تاریخ رفت</label><input type="date" id="date-start">
-                <span id="end-group">
-                    <label for="date-end">تاریخ برگشت</label><input type="date" id="date-end">
-                </span>
+                <input type="date" id="date-start" class="inp-gp-right"><input type="date" id="date-end" class="inp-gp-left">
                 <span id="show-flights">🛪 نمایش پرواز ها</span>
             </form>
         </div>
     </div>
     <script>
         const typeInput = document.getElementById('type');
-        typeInput.value = 'دو طرفه';
+        typeInput.value = 'return';
         typeInput.onchange = () => {
-            document.getElementById('end-group').hidden = typeInput.value === 'یک طرفه';
+            document.getElementById('date-end').hidden = typeInput.value !== 'return';
         };
         document.getElementById('show-flights').onclick = () => {
             const data = {
@@ -48,6 +47,26 @@
             sessionStorage.setItem('search-query', JSON.stringify(data));
             window.location = '/flights.html';
         };
+        document.getElementById('my-trips').onclick = () => {
+            if (sessionStorage.getItem('username')) {
+                window.location = '/dashboard.html';        
+            } else {
+                window.location = '/login.html';
+            }
+        };
+        const addToList = async () => {
+            var existingFlights = await (await fetch("/flights.json")).json();
+            existingFlights.forEach((x) => {
+                const add = (lid, txt) => {
+                    const c = document.createElement('option');
+                    c.value = txt;
+                    document.getElementById(lid).appendChild(c);
+                };
+                add('from-list', x.from);
+                add('to-list', x.to);
+            });
+        };
+        addToList();
     </script>
 </body>
 
