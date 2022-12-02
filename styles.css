@@ -1,15 +1,32 @@
-form {
+#form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
+#payment-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .containerLogin {
   display: block;
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
+}
+.input-payment {
+  display: block;
+  width: 200px;
+  border: 1px solid;
+  border-radius: 5px;
+  height: 40px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0px 5px;
 }
 .input-Item {
   display: block;
@@ -28,15 +45,23 @@ form {
   background: #8e2157;
   color: #fff;
 }
+.button-payment {
+  width: 450px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid;
+  background: #8e2157;
+  color: #fff;
+}
 .sidebar {
   width: 200px;
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
-  color: #282f53;
+  color: #f0f0f0;
   z-index: 99;
-  background: rgb(98, 85, 85);
+  background: #8e2157;
   text-align: center;
 }
 body {
@@ -63,4 +88,20 @@ body {
   background: #13bfa6 !important;
   border-color: #13bfa6;
   border: 1px solid;
+}
+.input-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#input-row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#number-type {
+  width: 100px;
+  height: 26px;
+  margin-top: 13px;
+  margin-right: 30px;
 }

@@ -14,11 +14,12 @@
       <div class="sidebar">
         <p>خوش آمدی</p>
         <img class="user-profile" src="./1.jpg" />
-        <p id="dash-username">علی</p>
+        <p id="dash-username"></p>
         <btn>خروج</btn>
       </div>
       <div class="content">
         <p>داشبورد</p>
+        <p>برای جزییات بیشتر روی تراکنش مربوطه کلیک کنید</p>
         <table class="table table-hover">
           <thead>
             <tr>
@@ -51,6 +52,24 @@
         </table>
       </div>
     </div>
-    <script src="./code.js"></script>
+    <script>
+      document.getElementById("dash-username").innerHTML =
+        localStorage.getItem("username");
+
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "contents") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "contents";
+          }
+        });
+      }
+    </script>
   </body>
 </html>

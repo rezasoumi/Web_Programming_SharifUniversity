@@ -26,8 +26,8 @@ function loginPerson(email, password) {
   for (let x in user) {
     if (user[x].email == email) {
       if (user[x].password == password) {
-        sessionStorage.setItem("userlogin", true);
-        sessionStorage.setItem("username", user[x].username);
+        localStorage.setItem("userlogin", true);
+        localStorage.setItem("username", user[x].username);
         break;
       } else {
         str = "password is wrong";
@@ -41,19 +41,11 @@ function loginPerson(email, password) {
   console.log(str);
 }
 
-var coll = document.getElementsByClassName("collapsible");
-var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function () {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "contents") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "contents";
-    }
-  });
+
+
+var e = document.getElementById("number-type");
+var e_val = e.value;
+if (e === "1") {
+  e.innerHTML="aa"
 }
-document.getElementById("dash-username").innerHTML =
-  sessionStorage.getItem("username");
