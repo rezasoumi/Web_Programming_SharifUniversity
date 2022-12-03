@@ -37,6 +37,29 @@
         }
         */
         
+        function sendToDashbord(type, item){ 
+            let price;
+            let economyOrBusiness;
+            if (type == "business"){
+                price = item.business_price;
+            }
+            else{
+                price = item.economy_price
+            }
+            const data = {
+                from: itme.from,
+                to: itme.to,
+                type: item.type,
+                date_start: item.date_start,
+                date_end: item.date_end,
+                price: price,
+                flight_duration:item.flight_duration,
+            };
+            sessionStorage.setItem('flights-to-dashbord', JSON.stringify(data));
+            window.location = '/dashboard.html';
+            return;
+        }
+
         function query(item){ 
             return item.from == requiredFlight.from && 
                 item.to == requiredFlight.to && 
@@ -84,7 +107,7 @@
 
                 <div class="card card-footer">
                     <div class="card card-price">
-                        <a href="javascript: void(0)" aria-label="Economy <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.economy_price}">
+                        <a href="javascript:void(0);" onclick="javascript:sendToDashbord("economy", ${item});" aria-label="Economy <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.economy_price}">
                             <h5><span>Economy</span></h5>
                             <h3>
                                 <span><span>IRR</span>&nbsp;${item.economy_price}</span>
@@ -92,7 +115,7 @@
                         </a>
                     </div>
                     <div class="card card-price">
-                        <a href="javascript: void(0)" aria-label="Business <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.business_price}">
+                        <a href="javascript:void(0);" onclick="javascript:sendToDashbord("bussiness", ${item});" aria-label="Business <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.business_price}">
                             <h5>
                                 <span>Business</span></h5>
                                 <h3><span>
