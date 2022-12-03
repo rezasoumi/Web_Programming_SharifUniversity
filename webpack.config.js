@@ -19,11 +19,35 @@ const config = {
     open: true,
     host: "localhost",
     watchFiles: ['src/**/index.html'],
-    static: ['src/mainpage/static', 'src/static']
+    static: ['src/mainpage/static', 'src/payment/static', 'src/login/static', 'src/flightDetails/static', 'src/dashboard/static', 'src/static']
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/mainpage/index.html",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "index-old.html",
+      template: "src/mainpage/index-old.html",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "dashboard.html",
+      template: "src/dashboard/dashboard.html",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "flights.html",
+      template: "src/flightDetails/flights.html",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "login.html",
+      template: "src/login/login.html",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "register.html",
+      template: "src/login/register.html",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "payment.html",
+      template: "src/payment/payment.html",
     }),
 
     // Add your plugins here
