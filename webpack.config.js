@@ -11,7 +11,10 @@ const stylesHandler = isProduction
   : "style-loader";
 
 const config = {
-  entry: "./src/index.ts",
+  entry: {
+    mainpage: "./src/mainpage/index.ts",
+    payment: "./src/payment/code.js"
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
   },
@@ -24,6 +27,7 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/mainpage/index.html",
+      chunks: ["mainpage"]
     }),
     new HtmlWebpackPlugin({
       filename: "index-old.html",
@@ -48,6 +52,7 @@ const config = {
     new HtmlWebpackPlugin({
       filename: "payment.html",
       template: "src/payment/payment.html",
+      chunks: ["payment"]
     }),
 
     // Add your plugins here
