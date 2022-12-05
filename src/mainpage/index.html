@@ -16,6 +16,7 @@
         </a>
         <div class="flex items-center">
           <button
+            id="login"
             class="h-fit whitespace-nowrap rounded-lg border border-solid border-white px-9 py-2.5 text-white transition-all hover:bg-white hover:text-black max-sm:hidden"
             type="button"
           >
@@ -59,10 +60,13 @@
           >
             <label class="h-full w-1/2 pr-5">
               <input
+                id="from"
                 autocomplete="off"
                 class="h-full outline-0"
                 placeholder="مبدأ"
+                list="from-list"
               />
+              <datalist id="from-list"></datalist>
             </label>
             <span
               class="fa-solid fa-right-left absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border border-solid border-neutral-500 bg-white p-2"
@@ -71,10 +75,13 @@
               class="h-full w-1/2 border-r border-solid border-neutral-500 pr-8"
             >
               <input
+                id="to"
                 autocomplete="off"
                 class="h-full outline-0"
                 placeholder="مقصد"
+                list="to-list"
               />
+              <datalist id="to-list"></datalist>
             </label>
           </div>
           <div
@@ -83,9 +90,11 @@
             <span class="fa-regular fa-calendar px-1 text-2xl"></span>
             <label class="pr-2">
               <input
+                id="date"
                 class="h-full outline-0"
                 placeholder="تاریخ پرواز"
                 readonly
+                type="date"
               />
             </label>
           </div>
@@ -98,6 +107,7 @@
             </label>
           </div>
           <button
+            id="show-flights"
             class="rounded-lg bg-orange-500 py-3 px-16 text-xl text-white hover:bg-orange-400 hover:transition-all"
           >
             جستجو

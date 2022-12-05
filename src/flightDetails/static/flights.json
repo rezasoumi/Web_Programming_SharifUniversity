@@ -2,9 +2,7 @@
   {
     "from": "tehran",
     "to": "boston",
-    "type": "return",
-    "date_start": "2022-11-29",
-    "date_end": "2022-12-01",
+    "date": "2022-11-29",
     "time_start": "21:01",
     "time_end": "1:00",
     "flight_duration": "15",
@@ -15,9 +13,7 @@
   {
     "from": "brazil",
     "to": "abadan",
-    "type": "return",
-    "date_start": "2022-9-1",
-    "date_end": "2022-10-1",
+    "date": "2022-9-1",
     "time_start": "13:01",
     "time_end": "8:00",
     "flight_duration": "21",
@@ -28,9 +24,7 @@
   {
     "from": "newyork",
     "to": "tehran",
-    "type": "return",
-    "date_start": "2023-9-1",
-    "date_end": "2023-10-1",
+    "date": "2023-9-1",
     "time_start": "24:01",
     "time_end": "10:00",
     "flight_duration": "10",

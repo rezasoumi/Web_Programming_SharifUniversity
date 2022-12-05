@@ -1,75 +1,48 @@
 <!DOCTYPE html>
 <html lang="fa">
+  <head>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
 
-<head>
-    <link rel="stylesheet" href="./index.css">
-</head>
-
-<body dir="rtl">
+  <body dir="rtl">
     <div class="background">
-        <div class="form-root">
-            <div class="form-nav">
-                <div class="nav-button start selected">
-                    ✈ رزرو
-                </div>
-                <div class="nav-button end" id="my-trips">
-                    🕮 سفر های من
-                </div>
-            </div>
-            <div class="form-body">
-                <form>
-                    <input id="from" class="inp-gp-right" list="from-list" type="text" placeholder="از" ><input
-                        id="to" list="to-list" type="text" class="inp-gp-left" placeholder="به">
-                    <datalist id="from-list"></datalist>
-                    <datalist id="to-list"></datalist>
-                    <label for="type">نوع</label><select id="type">
-                        <option value="one-way">یک طرفه</option>
-                        <option value="return">دو طرفه</option>
-                    </select>
-                    <input type="date" id="date-start" class="inp-gp-right"><input type="date" id="date-end" class="inp-gp-left">
-                    <span id="show-flights">🛪 نمایش پرواز ها</span>
-                </form>
-            </div>
+      <div class="form-root">
+        <div class="form-nav">
+          <div class="nav-button start selected">✈ رزرو</div>
+          <div class="nav-button end" id="my-trips">🕮 سفر های من</div>
+        </div>
+        <div class="form-body">
+          <form>
+            <input
+              id="from"
+              class="inp-gp-right"
+              list="from-list"
+              type="text"
+              placeholder="از"
+            /><input
+              id="to"
+              list="to-list"
+              type="text"
+              class="inp-gp-left"
+              placeholder="به"
+            />
+            <datalist id="from-list"></datalist>
+            <datalist id="to-list"></datalist>
+            <label for="type">نوع</label
+            ><select id="type">
+              <option value="one-way">یک طرفه</option>
+              <option value="return">دو طرفه</option>
+            </select>
+            <input type="date" id="date-start" class="inp-gp-right" /><input
+              type="date"
+              id="date-end"
+              class="inp-gp-left"
+            />
+            <span id="show-flights">🛪 نمایش پرواز ها</span>
+          </form>
+        </div>
+      </div>
     </div>
-    </div>
-    <script>
-        const typeInput = document.getElementById('type');
-        typeInput.value = 'return';
-        typeInput.onchange = () => {
-            document.getElementById('date-end').hidden = typeInput.value !== 'return';
-        };
-        document.getElementById('show-flights').onclick = () => {
-            const data = {
-                from: document.getElementById('from').value,
-                to: document.getElementById('to').value,
-                type: document.getElementById('type').value,
-                date_start: document.getElementById('date-start').value,
-                date_end: document.getElementById('date-end').value,
-            };
-            sessionStorage.setItem('search-query', JSON.stringify(data));
-            window.location = '/flights.html';
-        };
-        document.getElementById('my-trips').onclick = () => {
-            if (sessionStorage.getItem('username')) {
-                window.location = '/dashboard.html';        
-            } else {
-                window.location = '/login.html';
-            }
-        };
-        const addToList = async () => {
-            var existingFlights = await (await fetch("/flights.json")).json();
-            existingFlights.forEach((x) => {
-                const add = (lid, txt) => {
-                    const c = document.createElement('option');
-                    c.value = txt;
-                    document.getElementById(lid).appendChild(c);
-                };
-                add('from-list', x.from);
-                add('to-list', x.to);
-            });
-        };
-        addToList();
-    </script>
-</body>
-
+    <script></script>
+  </body>
 </html>
