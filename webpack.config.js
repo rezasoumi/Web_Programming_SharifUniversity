@@ -21,7 +21,7 @@ const config = {
   devServer: {
     open: true,
     host: "localhost",
-    watchFiles: ['src/**/index.html'],
+    watchFiles: ['src/index.html'],
     static: ['src', 'src/login/static', 'src/flightDetails/static', 'src/dashboard/static', 'src/static']
   },
   plugins: [
