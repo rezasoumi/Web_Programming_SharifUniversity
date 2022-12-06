@@ -8,7 +8,7 @@
     />
     <title>هواپیمایی ماهان</title>
   </head>
-  <body class="bg-gray-300">
+  <body class="bg-gray-200">
     <header class="fixed z-10 w-screen">
       <div class="m-auto flex max-w-7xl items-center justify-between px-3">
         <a class="py-3.5" href=".">
@@ -45,77 +45,125 @@
     <main>
       <img
         alt="Banner Picture"
-        class="object-cover object-left-bottom max-sm:h-[300px]"
+        class="h-[500px] w-full object-cover object-left-bottom max-sm:h-[300px]"
         src="img/home-banner.jpg"
       />
-      <article
-        class="relative m-auto -mt-[50px] max-w-7xl overflow-hidden rounded-lg"
-      >
-        <header class="bg-teal-400 py-3 text-center text-2xl text-white">
-          <span
-            class="fa-solid fa-plane-up relative top-0.5 pl-1.5 text-2xl"
-          ></span>
-          خرید بلیت
-        </header>
-        <div class="flex flex-wrap justify-center bg-white p-7">
-          <div class="mb-6 w-full px-1 sm:w-3/5 lg:mb-0 lg:w-2/5">
-            <div
-              class="relative flex h-full flex-wrap overflow-hidden rounded-lg border border-solid border-neutral-500"
-            >
-              <label class="h-12 w-full pr-5 sm:w-1/2">
-                <input
-                  autocomplete="off"
-                  class="h-full outline-0"
-                  placeholder="مبدأ"
-                />
-              </label>
-              <span
-                class="fa-solid fa-right-left absolute left-[15%] top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border border-solid border-neutral-500 bg-white p-2 max-sm:rotate-90 sm:left-1/2"
-              ></span>
-              <label
-                class="h-12 w-full border-solid border-neutral-500 pr-8 max-sm:border-t sm:w-1/2 sm:border-r"
+      <div class="m-auto max-w-7xl px-3.5">
+        <article
+          class="relative -mt-[50px] overflow-hidden rounded-lg max-sm:-mx-3.5"
+        >
+          <header class="bg-teal-400 py-3 text-center text-2xl text-white">
+            <span
+              class="fa-solid fa-plane-up relative top-0.5 pl-1.5 text-2xl"
+            ></span>
+            خرید بلیت
+          </header>
+          <div class="flex flex-wrap justify-center bg-white p-7">
+            <div class="mb-6 w-full px-1 sm:w-3/5 lg:mb-0 lg:w-2/5">
+              <div
+                class="relative flex h-full flex-wrap overflow-hidden rounded-lg border border-solid border-neutral-500"
               >
-                <input
-                  autocomplete="off"
-                  class="h-full outline-0"
-                  placeholder="مقصد"
-                />
-              </label>
+                <label class="h-12 w-full pr-5 sm:w-1/2">
+                  <input
+                    autocomplete="off"
+                    class="h-full outline-0"
+                    placeholder="مبدأ"
+                  />
+                </label>
+                <span
+                  class="fa-solid fa-right-left absolute left-[12%] top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border border-solid border-neutral-500 bg-white p-2 max-sm:rotate-90 sm:left-1/2"
+                ></span>
+                <label
+                  class="h-12 w-full border-solid border-neutral-500 pr-8 max-sm:border-t sm:w-1/2 sm:border-r"
+                >
+                  <input
+                    autocomplete="off"
+                    class="h-full outline-0"
+                    placeholder="مقصد"
+                  />
+                </label>
+              </div>
+            </div>
+            <div class="mb-6 h-12 w-full px-1 sm:w-2/5 lg:mb-0 lg:w-1/4">
+              <div
+                class="flex h-full items-center overflow-hidden rounded-lg border border-solid border-neutral-500"
+              >
+                <span class="fa-regular fa-calendar px-1 text-2xl"></span>
+                <label class="pr-2">
+                  <input
+                    class="h-full outline-0"
+                    placeholder="تاریخ پرواز"
+                    readonly
+                  />
+                </label>
+              </div>
+            </div>
+            <div class="h-12 w-1/2 px-1 lg:w-1/6">
+              <div
+                class="flex h-full items-center overflow-hidden rounded-lg border border-solid border-neutral-500"
+              >
+                <span class="fa-solid fa-users px-1"></span>
+                <label class="pr-2">
+                  <input class="h-full outline-0" readonly />
+                </label>
+              </div>
+            </div>
+            <div class="h-12 w-1/2 px-1 lg:w-1/6">
+              <button
+                class="h-full w-full rounded-lg bg-orange-500 py-3 text-center text-xl text-white hover:bg-orange-400 hover:transition-all"
+              >
+                جستجو
+              </button>
             </div>
           </div>
-          <div class="mb-6 h-12 w-full px-1 sm:w-2/5 lg:mb-0 lg:w-1/4">
+        </article>
+        <article class="mt-7">
+          <header>
             <div
-              class="flex h-full items-center overflow-hidden rounded-lg border border-solid border-neutral-500"
+              class="relative pb-3.5 text-2xl after:absolute after:bottom-0 after:right-0 after:w-20 after:rounded after:border-b-[3px] after:border-b-green-600"
             >
-              <span class="fa-regular fa-calendar px-1 text-2xl"></span>
-              <label class="pr-2">
-                <input
-                  class="h-full outline-0"
-                  placeholder="تاریخ پرواز"
-                  readonly
+              پروازهای هفتگی
+            </div>
+          </header>
+          <div class="mt-6 flex flex-wrap">
+            <div class="w-full p-2.5 md:w-1/3">
+              <article class="w-full overflow-hidden rounded-xl bg-white">
+                <img
+                  src="img/Istanbul1.jpg"
+                  class="md:h-[250px]"
+                  alt="Istanbul Image"
                 />
-              </label>
+                <div class="py-2 pr-3">
+                  <h2 class="text-lg font-bold">تهران - استانبول - تهران</h2>
+                  <h4>۲۷ پرواز (هر روز هفته)</h4>
+                </div>
+              </article>
+            </div>
+            <div class="w-full p-2.5 md:w-1/3">
+              <article class="w-full overflow-hidden rounded-xl bg-white">
+                <img src="img/Yazd.jpg" class="md:h-[250px]" alt="Yazd Image" />
+                <div class="py-2 pr-3">
+                  <h2 class="text-lg font-bold">تهران - یزد - تهران</h2>
+                  <h4>هر روز هفته (به جز پنج‌شنبه)</h4>
+                </div>
+              </article>
+            </div>
+            <div class="w-full p-2.5 md:w-1/3">
+              <article class="w-full overflow-hidden rounded-xl bg-white">
+                <img
+                  src="img/Ankara.jpg"
+                  class="md:h-[250px]"
+                  alt="Ankara Image"
+                />
+                <div class="py-2 pr-3">
+                  <h2 class="text-lg font-bold">تهران - آنکارا - تهران</h2>
+                  <h4>یک‌شنبه - چهارشنبه</h4>
+                </div>
+              </article>
             </div>
           </div>
-          <div class="h-12 w-1/2 px-1 lg:w-1/6">
-            <div
-              class="flex h-full items-center overflow-hidden rounded-lg border border-solid border-neutral-500"
-            >
-              <span class="fa-solid fa-users px-1"></span>
-              <label class="pr-2">
-                <input class="h-full outline-0" readonly />
-              </label>
-            </div>
-          </div>
-          <div class="h-12 w-1/2 px-1 lg:w-1/6">
-            <button
-              class="h-full w-full rounded-lg bg-orange-500 py-3 text-center text-xl text-white hover:bg-orange-400 hover:transition-all"
-            >
-              جستجو
-            </button>
-          </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </main>
   </body>
 </html>
