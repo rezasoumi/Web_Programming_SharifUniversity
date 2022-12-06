@@ -12,8 +12,8 @@ const stylesHandler = isProduction
 
 const config = {
   entry: {
-    mainpage: "./src/mainpage/index.ts",
-    payment: "./src/payment/code.js"
+    mainpage: "./src/index.ts",
+    payment: "./src/js/code.js"
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -22,13 +22,14 @@ const config = {
     open: true,
     host: "localhost",
     watchFiles: ['src/**/index.html'],
-    static: ['src/mainpage/static', 'src/payment/static', 'src/login/static', 'src/flightDetails/static', 'src/dashboard/static', 'src/static']
+    static: ['src', 'src/login/static', 'src/flightDetails/static', 'src/dashboard/static', 'src/static']
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/mainpage/index.html",
+      template: "src/index.html",
       chunks: ["mainpage"]
     }),
+/*
     new HtmlWebpackPlugin({
       filename: "index-old.html",
       template: "src/mainpage/index-old.html",
@@ -54,6 +55,7 @@ const config = {
       template: "src/payment/payment.html",
       chunks: ["payment"]
     }),
+*/
 
     // Add your plugins here
     // Learn more about plugins from https://webpack.js.org/configuration/plugins/

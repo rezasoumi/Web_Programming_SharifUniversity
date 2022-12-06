@@ -7,6 +7,6 @@
     "allowJs": true
   },
   "files": [
-    "src/mainpage/index.ts"
+    "src/index.ts"
   ]
 }
