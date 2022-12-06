@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
+  <body>
+    <div class="containerLogin">
+      <form id="form" name="form1">
+        <img src="../static//qatar.svg" />
+        <h2>صفحه ی ورود</h2>
+        <input
+          type="email"
+          id="fmail"
+          name="fmail"
+          placeholder="ایمیل"
+          class="input-Item"
+        /><br />
+        <input
+          type="password"
+          id="fpass"
+          name="fpass"
+          placeholder="رمز عبور"
+          class="input-Item"
+        /><br /><br />
+        <button
+          class="button-login"
+          onclick="loginPerson(document.getElementById('fmail').value,document.getElementById('fpass').value)"
+        >
+          Login
+        </button>
+        <p>
+          ثبت نام نکرده اید
+          <a href="./register.html" target="_self">کلیک کنید</a>
+        </p>
+      </form>
+    </div>
+    <script src="./code.js"></script>
+  </body>
+</html>

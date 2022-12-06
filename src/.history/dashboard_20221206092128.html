@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="main-page">
+      <div class="sidebar">
+        <p>خوش آمدی</p>
+        <img class="user-profile" src=".im/1.jpg" />
+        <p id="dash-username"></p>
+        <btn>خروج</btn>
+      </div>
+      <div class="content">
+        <p>داشبورد</p>
+        <p>برای جزییات بیشتر روی تراکنش مربوطه کلیک کنید</p>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">اسم مسافر</th>
+              <th scope="col">تاریخ خرید</th>
+              <th scope="col">وضغیت تراکنش</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="collapsible">
+              <th scope="row">1</th>
+              <td>علی جوانمرد</td>
+              <td>1تیر</td>
+              <td><btn class="btn btn-success btn-pill">موفق</btn></td>
+            </tr>
+            <tr class="tr-content">
+              <th scope="row">-</th>
+              <td>رضا جوان</td>
+              <td>1 تیر</td>
+              <td>موفق</td>
+            </tr>
+            <tr class="collapsible">
+              <th scope="row">2</th>
+              <td>علی جوانمرد</td>
+              <td>1 مرداد</td>
+              <td><btn class="btn btn-success btn-pill">موفق</btn></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      document.getElementById("dash-username").innerHTML =
+        localStorage.getItem("username");
+
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.display === "contents") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "contents";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
+  <body>
+    <div class="containerLogin">
+      <form id="payment-form" name="form2">
+        <img src="../static/img/qatar.svg" width="300px" />
+        <h2>پرواز تهران به قطر</h2>
+        <div id="input-row1">
+          <p>انتخاب تعداد</p>
+          <select id="number-type">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div id="flex-content"></div>
+
+        <script>
+          let html = `   <div class="input-row" id="input-row2">
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            placeholder="نام و نام خانوادگی"
+            class="input-payment"
+          />
+          <input
+            type="number"
+            id="fpassport"
+            name="fpass"
+            placeholder="شماره ی پاسپورت"
+            class="input-payment"
+          />
+        </div>`;
+          let e = document.getElementById("number-type");
+          let e2 = document.getElementById("input-row2");
+          let e3 = document.getElementById("flex-content");
+          e.addEventListener("change", (event) => {
+            e3.innerHTML = "";
+            var e_val = parseInt(event.target.value);
+            for (let i = 0; i < e_val; i++) {
+              e3.insertAdjacentHTML("afterbegin", html);
+            }
+          });
+        </script>
+        <button class="button-payment">خرید</button>
+      </form>
+    </div>
+    <script src="./code.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </body>
+</html>

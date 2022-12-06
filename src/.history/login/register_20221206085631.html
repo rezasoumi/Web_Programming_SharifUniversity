@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./static/styles.css" />
+  </head>
+  <body>
+    <div class="containerLogin">
+      <form id="form" name="form2">
+        <img src="./qatar.svg" />
+        <h2>صفحه ی ثبت نام</h2>
+
+        <input
+          type="text"
+          id="fname"
+          name="fname"
+          placeholder="نام و نام خانوادگی"
+          class="input-Item"
+        /><br />
+        <input
+          type="number"
+          id="fpassport"
+          name="fpass"
+          placeholder="شماره ی پاسپورت"
+          class="input-Item"
+        /><br />
+        <input
+          type="email"
+          id="fmail"
+          name="fmail"
+          placeholder="آدرس ایمیل"
+          class="input-Item"
+        /><br />
+        <input
+          type="password"
+          id="fpass"
+          name="fpass"
+          placeholder="رمز ورود"
+          class="input-Item"
+        /><br /><br />
+        <button
+          class="button-login"
+          onclick="newPerson(document.getElementById('fname').value,document.getElementById('fpassport').value,document.getElementById('fmail').value,document.getElementById('fpass').value)"
+        >
+          ثبت نام
+        </button>
+        <p>
+          قبلا ثبت نام کرده اید
+          <a href="./login.html" target="_self">کلیک کنید</a>
+        </p>
+      </form>
+    </div>
+    <script src="./code.js"></script>
+  </body>
+</html>
