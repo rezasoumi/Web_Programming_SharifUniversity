@@ -20,41 +20,7 @@
         const requiredFlight = JSON.parse(sessionStorage.getItem("search-query"));
 
         alert(JSON.stringify(requiredFlight));
-
-        /* TEST
-        function query(item){ 
-            return (item.from == "newyork" && 
-                item.to == "tehran" && 
-                item.type == "return" && 
-                item.date_start == "2023/9/1" && 
-                item.date_end == "2023/10/1") 
-                || 
-                (item.from == "brazil" && 
-                item.to == "abadan" && 
-                item.type == "return" && 
-                item.date_start == "2022/9/1" && 
-                item.date_end == "2022/10/1");
-        }
-        */
-
-        function sendToDashbord(type, from, to, date_start, date_end, time_Start, time_end, stop_num, flight_duration, price){ 
-            const data = {
-                from: from,
-                to: to,
-                type: type,
-                date_start: date_start,
-                date_end: date_end,
-                time_Start: time_Start,
-                time_end: time_end,
-                stop_num: stop_num,
-                flight_duration: flight_duration,
-                price: price,
-            };
-            sessionStorage.setItem('flights-to-dashbord', JSON.stringify(data));
-            window.location = '/dashboard.html';
-            return;
-        }
-
+        
         function query(item){ 
             return item.from == requiredFlight.from && 
                 item.to == requiredFlight.to && 
@@ -64,6 +30,30 @@
         }
         
         var desiredFlights = existingFlights.filter(query);
+
+        function sendToDashbord(type, id, price){ 
+          for (const flight in desiredFlights) {
+            if (flight.id == id){
+              const data = {
+                from: flight.from,
+                to: flight.to,
+                type: type, // business or economy
+                date_start: flight.date_start,
+                date_end: flight.date_end,
+                time_Start: flight.time_Start,
+                time_end: flight.time_end,
+                stop_num: flight.stop_num,
+                flight_duration: flight.flight_duration,
+                price: flight.price,
+              };
+              sessionStorage.setItem('flights-to-dashbord', JSON.stringify(data));
+              window.location = '/dashboard.html';
+              return;
+            }
+          }
+          return;  
+        }
+
 
         console.log(desiredFlights);
         const dataElement = document.querySelector('.data');
@@ -110,7 +100,7 @@
       </div>
       <div class="card card-footer">
         <div class="card card-price">
-          <a href="javascript:void(0);" onclick="javascript:sendToDashbord("bussiness", ${item.from}, ${item.to}, ${item.date_start}, ${item.date_end}, ${item.time_start}, ${item.time_end}, ${item.stop_num}, ${item.flight_duration}, ${item.business_price});" aria-label="Business <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.business_price}">
+          <a href="javascript:void(0);" onclick="javascript:sendToDashbord("business", ${item.id}, ${item.business_price});" aria-label="Business <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.business_price}">
 
             <h5>
               <span>Business</span>
@@ -121,7 +111,7 @@
           </a>
         </div>
         <div class="card card-price">
-          <a href="javascript:void(0);" onclick="javascript:sendToDashbord("economy", ${item.from}, ${item.to}, ${item.date_start}, ${item.date_end}, ${item.time_start}, ${item.time_end}, ${item.stop_num}, ${item.flight_duration}, ${item.economy_price});" aria-label="Economy <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.economy_price}">
+          <a href="javascript:void(0);" onclick="javascript:sendToDashbord("economy", ${item.id}, ${item.economy_price});" aria-label="Economy <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.economy_price}">
             <h5><span>Economy</span></h5>
             <h3>
               <span><span>IRR</span>&nbsp;554,297,000</span>
