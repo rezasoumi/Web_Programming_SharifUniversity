@@ -2,41 +2,57 @@
 <html>
   <head>
     <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/font-awesome.css" />
   </head>
   <body>
     <div class="containerLogin">
       <form id="form" name="form2">
         <img src="./img/qatar.svg" />
-        <h2>صفحه ی ثبت نام</h2>
-
-        <input
-          type="text"
-          id="fname"
-          name="fname"
-          placeholder="نام و نام خانوادگی"
-          class="input-Item"
-        /><br />
-        <input
-          type="number"
-          id="fpassport"
-          name="fpass"
-          placeholder="شماره ی پاسپورت"
-          class="input-Item"
-        /><br />
-        <input
-          type="email"
-          id="fmail"
-          name="fmail"
-          placeholder="آدرس ایمیل"
-          class="input-Item"
-        /><br />
-        <input
-          type="password"
-          id="fpass"
-          name="fpass"
-          placeholder="رمز ورود"
-          class="input-Item"
-        /><br /><br />
+        <h2>صفحه&nbspی ثبت نام</h2>
+        <div class="container-icon">
+          <i class="fa fa-user my-user"></i>
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            placeholder="نام و نام خانوادگی"
+            class="input-Item"
+          />
+        </div>
+        <br />
+        <div class="container-icon">
+          <i class="fa fa-ticket my-user"></i>
+          <input
+            type="number"
+            id="fpassport"
+            name="fpass"
+            placeholder="شماره&nbspی پاسپورت"
+            class="input-Item"
+          />
+        </div>
+        <br />
+        <div class="container-icon">
+          <i class="fa fa-envelope my-user"></i>
+          <input
+            type="email"
+            id="fmail"
+            name="fmail"
+            placeholder="آدرس ایمیل"
+            class="input-Item"
+          />
+        </div>
+        <br />
+        <div class="container-icon">
+          <i class="fa fa-eye my-user"></i>
+          <input
+            type="password"
+            id="fpass"
+            name="fpass"
+            placeholder="رمز ورود"
+            class="input-Item"
+          />
+        </div>
+        <br /><br />
         <button
           class="button-login"
           onclick="newPerson(document.getElementById('fname').value,document.getElementById('fpassport').value,document.getElementById('fmail').value,document.getElementById('fpass').value)"
@@ -44,7 +60,7 @@
           ثبت نام
         </button>
         <p>
-          قبلا ثبت نام کرده اید
+          قبلا ثبت&nbspنام کرده&nbspاید
           <a href="./login.html" target="_self">کلیک کنید</a>
         </p>
       </form>
