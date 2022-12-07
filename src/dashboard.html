@@ -25,11 +25,11 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">اسم مسافر</th>
-              <th scope="col">تاریخ خرید</th>
+              <th scope="col">کد پاسپورت</th>
               <th scope="col">وضغیت تراکنش</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="dashboard-items">
             <tr class="collapsible">
               <th scope="row">1</th>
               <td>علی جوانمرد</td>
@@ -52,24 +52,5 @@
         </table>
       </div>
     </div>
-    <script>
-      document.getElementById("dash-username").innerHTML =
-        localStorage.getItem("username");
-
-      var coll = document.getElementsByClassName("collapsible");
-      var i;
-
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.display === "contents") {
-            content.style.display = "none";
-          } else {
-            content.style.display = "contents";
-          }
-        });
-      }
-    </script>
   </body>
 </html>

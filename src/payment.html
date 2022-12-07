@@ -5,21 +5,19 @@
   </head>
   <body>
     <div class="containerLogin">
-      <form id="payment-form" name="form2">
-        <img src="./img/qatar.svg" width="300px" />
-        <h2>پرواز تهران به قطر</h2>
-        <div id="input-row1">
-          <p>انتخاب تعداد</p>
-          <select id="number-type">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </div>
-        <div id="flex-content"></div>
-
+      <img src="./img/qatar.svg" width="300px" />
+      <h2>پرواز تهران به قطر</h2>
+      <div id="input-row1">
+        <p>انتخاب تعداد</p>
+        <select id="number-type">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div id="flex-content"></div>
         <script>
           let html = `   <div class="input-row" id="input-row2">
           <input
@@ -40,18 +38,18 @@
           let e = document.getElementById("number-type");
           let e2 = document.getElementById("input-row2");
           let e3 = document.getElementById("flex-content");
-          e.addEventListener("change", (event) => {
+          const updateCount = () => {
             e3.innerHTML = "";
-            var e_val = parseInt(event.target.value);
+            var e_val = parseInt(document.getElementById('number-type').value);
             for (let i = 0; i < e_val; i++) {
               e3.insertAdjacentHTML("afterbegin", html);
             }
-          });
+          };
+          e.addEventListener("change", updateCount);
+          updateCount();
         </script>
-        <button class="button-payment">خرید</button>
+        <button id="button-payment">خرید</button>
       </form>
     </div>
-    <script src="./code.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   </body>
 </html>

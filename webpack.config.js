@@ -13,7 +13,8 @@ const stylesHandler = isProduction
 const config = {
   entry: {
     mainpage: "./src/index.ts",
-    payment: "./src/js/code.js"
+    payment: "./src/payment.ts",
+    dashboard: "./src/dashboard.ts",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -29,14 +30,20 @@ const config = {
       template: "src/index.html",
       chunks: ["mainpage"]
     }),
+    new HtmlWebpackPlugin({
+      filename: "payment.html",
+      template: "src/payment.html",
+      chunks: ["payment"],
+    }),
+    new HtmlWebpackPlugin({
+      filename: "dashboard.html",
+      template: "src/dashboard.html",
+      chunks: ["dashboard"],
+    }),
 /*
     new HtmlWebpackPlugin({
       filename: "index-old.html",
       template: "src/mainpage/index-old.html",
-    }),
-    new HtmlWebpackPlugin({
-      filename: "dashboard.html",
-      template: "src/dashboard/dashboard.html",
     }),
     new HtmlWebpackPlugin({
       filename: "flights.html",
@@ -49,11 +56,6 @@ const config = {
     new HtmlWebpackPlugin({
       filename: "register.html",
       template: "src/login/register.html",
-    }),
-    new HtmlWebpackPlugin({
-      filename: "payment.html",
-      template: "src/payment/payment.html",
-      chunks: ["payment"]
     }),
 */
 
