@@ -36,24 +36,19 @@
                 item.date_end == "2022/10/1");
         }
         */
-        
-        function sendToDashbord(type, item){ 
-            let price;
-            let economyOrBusiness;
-            if (type == "business"){
-                price = item.business_price;
-            }
-            else{
-                price = item.economy_price
-            }
+
+        function sendToDashbord(type, from, to, date_start, date_end, time_Start, time_end, stop_num, flight_duration, price){ 
             const data = {
-                from: itme.from,
-                to: itme.to,
-                type: item.type,
-                date_start: item.date_start,
-                date_end: item.date_end,
+                from: from,
+                to: to,
+                type: type,
+                date_start: date_start,
+                date_end: date_end,
+                time_Start: time_Start,
+                time_end: time_end,
+                stop_num: stop_num,
+                flight_duration: flight_duration,
                 price: price,
-                flight_duration:item.flight_duration,
             };
             sessionStorage.setItem('flights-to-dashbord', JSON.stringify(data));
             window.location = '/dashboard.html';
@@ -115,7 +110,7 @@
       </div>
       <div class="card card-footer">
         <div class="card card-price">
-          <a href="javascript:void(0);" onclick="javascript:sendToDashbord("bussiness", ${item});" aria-label="Business <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.business_price}">
+          <a href="javascript:void(0);" onclick="javascript:sendToDashbord("bussiness", ${item.from}, ${item.to}, ${item.date_start}, ${item.date_end}, ${item.time_start}, ${item.time_end}, ${item.stop_num}, ${item.flight_duration}, ${item.business_price});" aria-label="Business <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.business_price}">
 
             <h5>
               <span>Business</span>
@@ -126,7 +121,7 @@
           </a>
         </div>
         <div class="card card-price">
-          <a href="javascript:void(0);" onclick="javascript:sendToDashbord("economy", ${item});" aria-label="Economy <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.economy_price}">
+          <a href="javascript:void(0);" onclick="javascript:sendToDashbord("economy", ${item.from}, ${item.to}, ${item.date_start}, ${item.date_end}, ${item.time_start}, ${item.time_end}, ${item.stop_num}, ${item.flight_duration}, ${item.economy_price});" aria-label="Economy <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.economy_price}">
             <h5><span>Economy</span></h5>
             <h3>
               <span><span>IRR</span>&nbsp;554,297,000</span>
