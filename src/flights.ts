@@ -1,22 +1,30 @@
+import "./css/FlightsCSS.css";
+import "https://pro.fontawesome.com/releases/v5.15.4/css/all.css";
+
 const main = async () => {
     var existingFlights = await (await fetch("/flights.json")).json();
-    const requiredFlight = JSON.parse(sessionStorage.getItem("search-query") || '[]');
+    //const requiredFlight = JSON.parse(sessionStorage.getItem("search-query") || '[]');
+    const requiredFlight = {
+      "from": "tehran",
+      "to": "boston",
+      "date": "2022-11-29",
+      "number": "2"
+    }
 
     alert(JSON.stringify(requiredFlight));
     
     function query(item){ 
-        return item.from == requiredFlight.from && 
-            item.to == requiredFlight.to && 
-            item.type == requiredFlight.type && 
-            item.time_Start == requiredFlight.time_Start && 
-            item.time_end == requiredFlight.time_end && 
-            item.date_start == requiredFlight.date_start && 
-            item.date_end == requiredFlight.date_end;
+      return item.from == requiredFlight.from && 
+          item.to == requiredFlight.to && 
+          item.date == requiredFlight.date && 
+          (item.business_supply_number >= requiredFlight.number || 
+          item.economy_supply_number == requiredFlight.number);
     }
     
     var desiredFlights = existingFlights.filter(query);
+    alert(JSON.stringify(desiredFlights));
 
-    function sendToDashbord(type, id, price){ 
+    function sendToPayment(type: string, id: string, price: string){ 
       for (const flightStr in desiredFlights) {
         const flight = JSON.parse(flightStr);
         if (flight.id == id){
@@ -30,10 +38,10 @@ const main = async () => {
             time_end: flight.time_end,
             stop_num: flight.stop_num,
             flight_duration: flight.flight_duration,
-            price: flight.price,
+            price: price,
           };
-          sessionStorage.setItem('flights-to-dashbord', JSON.stringify(data));
-          window.location.href = '/dashboard.html';
+          sessionStorage.setItem('flights-to-payment', JSON.stringify(data));
+          window.location.href = '/payment.html';
           return;
         }
       }

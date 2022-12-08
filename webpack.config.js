@@ -13,6 +13,7 @@ const stylesHandler = isProduction
 const config = {
   entry: {
     mainpage: "./src/index.ts",
+    flights: "./src/flights.ts",
     payment: "./src/payment.ts",
     dashboard: "./src/dashboard.ts",
   },
@@ -23,7 +24,7 @@ const config = {
     open: true,
     host: "localhost",
     watchFiles: ['src/index.html'],
-    static: ['src', 'src/login/static', 'src/flightDetails/static', 'src/dashboard/static', 'src/static']
+    static: ['src', 'src/login/static', 'src/flights/static', 'src/dashboard/static', 'src/static']
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -40,14 +41,15 @@ const config = {
       template: "src/dashboard.html",
       chunks: ["dashboard"],
     }),
+    new HtmlWebpackPlugin({
+      filename: "flights.html",
+      template: "src/flights.html",
+      chunks: ["flights"],
+    }),
 /*
     new HtmlWebpackPlugin({
       filename: "index-old.html",
       template: "src/mainpage/index-old.html",
-    }),
-    new HtmlWebpackPlugin({
-      filename: "flights.html",
-      template: "src/flightDetails/flights.html",
     }),
     new HtmlWebpackPlugin({
       filename: "login.html",
