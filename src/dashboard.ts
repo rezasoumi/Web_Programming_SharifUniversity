@@ -1,6 +1,6 @@
 const di = document.getElementById('dashboard-items')!;
 const tickets: Ticket[] = JSON.parse(localStorage.getItem('bought-tickets') || '[]');
-
+console.log(tickets);
 tickets.forEach((ticket, i) => {
     const [main, ...rest] = ticket.passengers;
     const mainElement = document.createElement('tr');
@@ -14,6 +14,7 @@ tickets.forEach((ticket, i) => {
     di.appendChild(mainElement);
     const mainBody = document.createElement('div');
     mainBody.style.display = "none";
+    console.log(rest);
     rest.forEach((p) => {
         const pElement = document.createElement('tr');
         pElement.innerHTML = `
