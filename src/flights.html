@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="./css/FlightsCSS.css">
+    <link rel="stylesheet" href="./css/fonts.css" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +12,6 @@
 <html>
 <body>
 
-<h1>The Related Flights</h1>
 <div class="data"></div>
 
 <script>
@@ -25,9 +25,7 @@
       "date": "1401/11/17",
       "number": "3"
     }
-
-    alert(JSON.stringify(requiredFlight));
-    
+    //alert(JSON.stringify(requiredFlight));
     function query(item,x,y){ 
       return item.from == requiredFlight.from && 
           item.to == requiredFlight.to && 
@@ -37,8 +35,7 @@
     }
 
     var desiredFlights = existingFlights.filter(query);
-    alert(JSON.stringify(desiredFlights));
-    
+    //alert(JSON.stringify(desiredFlights));
     console.log(desiredFlights);
     let dataElement = document.querySelector('.data');
     desiredFlights.forEach(item => {
@@ -62,7 +59,7 @@
                         alt="QR"
                       />
                     </div>
-                    <div>${item.stop_num} Stop, ${item.flight_duration}h</div>
+                    <div>${item.stop_num} توقف، ${item.flight_duration}ساعت</div>
                   </div>
                 </div>
                 
@@ -76,7 +73,7 @@
             </div>
             <div class="card card-footer">
               <div class="card card-price">
-                <a id="businessClick" href="javascript:void(0);" onclick="sendToPayment('business', '${item.id}', '${item.business_price}', ${requiredFlight.number})" aria-label="Business <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.business_price}">
+                <a href="javascript:void(0);" onclick="sendToPayment('business', '${item.id}', '${item.business_price}', ${requiredFlight.number})">
                   <h5>
                     <span>Business</span>
                   </h5>
@@ -86,7 +83,7 @@
                 </a>
               </div>
               <div class="card card-price">
-                <a id="economyClick" href="javascript:void(0);" onclick="sendToPayment('economy', '${item.id}', '${item.economy_price}', ${requiredFlight.number})" aria-label="Economy <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.economy_price}">
+                <a href="javascript:void(0);" onclick="sendToPayment('economy', '${item.id}', '${item.economy_price}', ${requiredFlight.number})">
                   <h5><span>Economy</span></h5>
                   <h3>
                     <span><span>IRR</span>&nbsp;554,297,000</span>

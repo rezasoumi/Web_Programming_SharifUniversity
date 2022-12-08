@@ -6,9 +6,10 @@
 }
 
 body {
-  font-family: "Nunito Sans", sans-serif;
+  background-color: white;
+  background-size: cover;
+  font-family: "BNazanin", "Nunito Sans", sans-serif;
   height: 100vh;
-  background: #c6b6b6;
 }
 
 .bording-pass {
@@ -17,7 +18,7 @@ body {
   align-items: center;
   text-align: center;
   margin: 24px auto;
-  background: white;
+  background: #cb7487;
   max-width: 1200px;
   border-radius: 12px;
   padding: 16px;

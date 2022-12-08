@@ -3,7 +3,7 @@
   src: url(../font/IRANSansXMedium.ttf);
 }
 * {
-  font-family: IranSans;
+  font-family: "BNazanin", IranSans;
 }
 #form {
   display: flex;
