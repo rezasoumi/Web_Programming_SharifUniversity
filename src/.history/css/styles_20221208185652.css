@@ -132,20 +132,13 @@ body {
   border: 1px solid;
   border-radius: 10px;
 }
-.alert-success {
+.alert-success,. {
   position: absolute !important;
   top: 0px;
   right: 0px;
   position: absolute;
   border-radius: 10px;
   background: #a3d599 !important;
-}
-.alert-danger {
-  position: absolute !important;
-  top: 60px;
-  right: 10px;
-  position: absolute;
-  border-radius: 10px;
 }
 .alert-dismissible .close {
   top: -11px !important;

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/font-awesome.css" />
+    <link rel="stylesheet" href="./scss/">
+
+  </head>
+  <body>
+    <div class="containerLogin">
+      <form id="form" name="form1">
+        <img src="./img/qatar.svg" />
+        <h2>صفحه&nbspی ورود</h2>
+        <div class="container-icon">
+          <i class="fa fa-user my-user"></i>
+          <input
+            type="email"
+            id="fmail"
+            name="fmail"
+            placeholder="ایمیل"
+            class="input-Item"
+          />
+        </div>
+        <br />
+        <div class="container-icon">
+          <i class="fa fa-envelope my-user"></i>
+          <input
+            type="password"
+            id="fpass"
+            name="fpass"
+            placeholder="رمز عبور"
+            class="input-Item"
+          />
+        </div>
+        <br /><br />
+        <button
+          class="button-login"
+          onclick="loginPerson(document.getElementById('fmail').value,document.getElementById('fpass').value)"
+        >
+          Login
+        </button>
+        <p>
+          ثبت&nbspنام نکرده&nbspاید
+          <a href="./register.html" target="_self">کلیک کنید</a>
+        </p>
+      </form>
+    </div>
+    <script src="./code.js"></script>
+  </body>
+</html>

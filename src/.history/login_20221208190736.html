@@ -50,13 +50,19 @@
           <a href="./register.html" target="_self">کلیک کنید</a>
         </p>
       </form>
+
       <div class="alert alert-success alert-dismissible">
         <button type="button" class="close" data-dismiss="alert">
           &times;
         </button>
         ورود با موفقیت انجام شد!
       </div>
-
+      <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">
+          &times;
+        </button>
+        رمز عبور نادرست است!
+      </div>
       <div class="alert alert-danger alert-dismissible">
         <button type="button" class="close" data-dismiss="alert">
           &times;
@@ -66,33 +72,27 @@
     </div>
     <script src="./code.js"></script>
     <script>
-      function loginPerson(email, password) {
-        let e = document.getElementsByClassName("button-login");
-        let html = `      <div class="alert alert-danger alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert">
-          &times;
-        </button>
-        رمز عبور نادرست است!
-      </div>`;
-        let str;
-        for (let x in user) {
-          if (user[x].email == email) {
-            if (user[x].password == password) {
-              localStorage.setItem("userlogin", true);
-              localStorage.setItem("username", user[x].username);
-              break;
-            } else {
-              str = "password is wrong";
-              break;
+      let e = document.getElementsByClassName("button-login");
+            function loginPerson(email, password) {
+              let str;
+              for (let x in user) {
+                if (user[x].email == email) {
+                  if (user[x].password == password) {
+                    localStorage.setItem("userlogin", true);
+                    localStorage.setItem("username", user[x].username);
+                    break;
+                  } else {
+                    str = "password is wrong";
+                    break;
+                  }
+                } else {
+                  str = "login failed";
+                }
+              }
+              if(str == "password is wrong){
+
+              }
             }
-          } else {
-            str = "login failed";
-          }
-        }
-        if (str == "password is wrong") {
-          e.insertAdjacentHTML("afterend", html);
-        }
-      }
     </script>
   </body>
 </html>
