@@ -6,7 +6,9 @@
   <body>
     <div class="containerLogin">
       <img src="./img/qatar.svg" width="300px" />
-      <h2>پرواز <span id="khh">تهران</span> به <span id="khh2">قطر</span></h2>
+      <h2>پرواز <span id="sourceCity"></span> به <span id="destCity"></span></h2>
+      <h4> تاریخ پرواز :  <span id="startdate"></span> </h4>
+      <h5> ساعت پرواز :  <span id="time_start"></span> </h5>
       <div id="input-row1">
         <p>انتخاب تعداد</p>
         <select id="number-type">
@@ -36,15 +38,24 @@
           />
         </div>`;
           let desireFlight = JSON.parse(sessionStorage.getItem("flights-to-payment") || '{}');
-          console.log(desireFlight.number);
-          
+          console.log(desireFlight.from);
+          document.getElementById('sourceCity').innerHTML = desireFlight.from;
+          document.getElementById('destCity').innerHTML = desireFlight.to;
+          document.getElementById('startdate').innerHTML = desireFlight.date;
+          document.getElementById('time_start').innerHTML = desireFlight.time_start;
           let e = document.getElementById("number-type");
           let e2 = document.getElementById("input-row2");
           let e3 = document.getElementById("flex-content");
+          let initForm = true;
+
           let updateCount = () => {
             e3.innerHTML = "";
-            //var e_val = parseInt(document.getElementById('number-type').value);
-            var e_val = desireFlight.number;
+            if (initForm){
+              var e_val = desireFlight.number;
+              initForm = false;
+            } else {
+              var e_val = parseInt(document.getElementById('number-type').value);
+            }
             for (let i = 0; i < e_val; i++) {
               e3.insertAdjacentHTML("afterbegin", html);
             }

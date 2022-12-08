@@ -20,9 +20,9 @@
     console.log(existingFlights);
     //let requiredFlight = JSON.parse(sessionStorage.getItem("search-query") || '[]');
     let requiredFlight = {
-      "from": "tehran",
-      "to": "boston",
-      "date": "2022-11-29",
+      "from": "تهران",
+      "to": "بوستون",
+      "date": "1401/11/17",
       "number": "3"
     }
 
@@ -114,7 +114,7 @@ main();
           to: flight.to,
           type: type, // business or economy
           date: flight.date,
-          time_Start: flight.time_start,
+          time_start: flight.time_start,
           time_end: flight.time_end,
           stop_num: flight.stop_num,
           flight_duration: flight.flight_duration,
