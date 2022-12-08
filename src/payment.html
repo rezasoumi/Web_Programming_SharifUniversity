@@ -6,7 +6,7 @@
   <body>
     <div class="containerLogin">
       <img src="./img/qatar.svg" width="300px" />
-      <h2>پرواز تهران به قطر</h2>
+      <h2>پرواز <span id="khh">تهران</span> به <span id="khh2">قطر</span></h2>
       <div id="input-row1">
         <p>انتخاب تعداد</p>
         <select id="number-type">
@@ -35,12 +35,16 @@
             class="input-payment"
           />
         </div>`;
+          let desireFlight = JSON.parse(sessionStorage.getItem("flights-to-payment") || '{}');
+          console.log(desireFlight.number);
+          
           let e = document.getElementById("number-type");
           let e2 = document.getElementById("input-row2");
           let e3 = document.getElementById("flex-content");
-          const updateCount = () => {
+          let updateCount = () => {
             e3.innerHTML = "";
-            var e_val = parseInt(document.getElementById('number-type').value);
+            //var e_val = parseInt(document.getElementById('number-type').value);
+            var e_val = desireFlight.number;
             for (let i = 0; i < e_val; i++) {
               e3.insertAdjacentHTML("afterbegin", html);
             }

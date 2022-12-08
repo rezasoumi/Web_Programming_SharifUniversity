@@ -19,3 +19,8 @@ document.getElementById('button-payment')!.onclick = () => {
     localStorage.setItem('bought-tickets',JSON.stringify([...prevTickets, currentTicket]));
     window.location.href = "/dashboard.html";
 };
+
+let desireFlight = JSON.parse(sessionStorage.getItem("flights-to-payment") || '{}');
+var sourceCity = desireFlight.from;
+var destCity = desireFlight.to;
+

@@ -18,12 +18,12 @@
   const main = async () => {
     var existingFlights = await (await fetch("/js/flights.json")).json();
     console.log(existingFlights);
-    //const requiredFlight = JSON.parse(sessionStorage.getItem("search-query") || '[]');
-    const requiredFlight = {
+    //let requiredFlight = JSON.parse(sessionStorage.getItem("search-query") || '[]');
+    let requiredFlight = {
       "from": "tehran",
       "to": "boston",
       "date": "2022-11-29",
-      "number": "2"
+      "number": "3"
     }
 
     alert(JSON.stringify(requiredFlight));
@@ -40,7 +40,7 @@
     alert(JSON.stringify(desiredFlights));
     
     console.log(desiredFlights);
-    const dataElement = document.querySelector('.data');
+    let dataElement = document.querySelector('.data');
     desiredFlights.forEach(item => {
     dataElement?.insertAdjacentHTML('afterbegin', `
           <div class="bording-pass">
@@ -104,12 +104,12 @@ main();
 </script>
 
 <script>
-  const sendToPayment = async(type, id, price, number) => { 
+  let sendToPayment = async(type, id, price, number) => { 
     var existingFlights = await (await fetch("/js/flights.json")).json();
     for(let i = 0; i < existingFlights.length; i++) {
       let flight = existingFlights[i];
       if (flight.id == id){
-        const data = {
+        let data = {
           from: flight.from,
           to: flight.to,
           type: type, // business or economy
