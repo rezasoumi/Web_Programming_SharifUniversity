@@ -1,15 +1,15 @@
 [
   {
     "id": "1",
-    "from": "tehran",
-    "to": "boston",
-    "date": "2022-11-29",
+    "from": "تهران",
+    "to": "بوستون",
+    "date": "1401/11/17",
     "time_start": "21:01",
     "time_end": "1:00",
     "flight_duration": "15",
     "stop_num": "2",
     "economy_price": "554297000",
-    "business_price": "1641100000",
+    "business_price": "1,641,100,000",
     "economy_supply_number": "10",
     "business_supply_number": "5"
   },
