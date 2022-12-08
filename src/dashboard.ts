@@ -9,6 +9,7 @@ tickets.forEach((ticket, i) => {
     <th scope="row">${i+1}</th>
     <td>${main.name}</td>
     <td>${main.code}</td>
+    <td>${main.flightDate}</td>
     <td><btn class="btn btn-success btn-pill">موفق</btn></td>
     `;
     di.appendChild(mainElement);
@@ -21,12 +22,13 @@ tickets.forEach((ticket, i) => {
         <th scope="row">-</th>
         <td>${p.name}</td>
         <td>${p.code}</td>
+        <td>${p.flightDate}</td>
         <td></td>
         `;
         mainBody.appendChild(pElement);
     });
     di.appendChild(mainBody);
-    (mainElement.children[3].children[0] as HTMLButtonElement).onclick = () => {
+    (mainElement.children[4].children[0] as HTMLButtonElement).onclick = () => {
         if (mainBody.style.display === "contents") {
             mainBody.style.display = "none";
         } else {

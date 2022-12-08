@@ -18,7 +18,7 @@ body {
   text-align: center;
   margin: 24px auto;
   background: white;
-  max-width: 1000px;
+  max-width: 1200px;
   border-radius: 12px;
   padding: 16px;
 }
@@ -28,8 +28,8 @@ body {
 }
 
 .card.card-top {
+  margin-top: auto;
   text-align: right;
-  padding-right: 20px;
 }
 .bording-pass .card.card-buttom {
   text-align: left;
@@ -71,6 +71,8 @@ body {
   flex-direction: column;
 }
 .bording-pass .card.card-footer {
+  margin-inline-start: auto;
+  justify-content: space-between;
   padding: 16px;
   display: flex;
   flex-direction: row;
@@ -78,6 +80,8 @@ body {
 }
 
 .card-price {
+  margin-left: auto;
+  margin-right: auto;
   width: 200px;
   height: 150px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
@@ -121,6 +125,10 @@ a {
 
   .city {
     font-size: 14px;
+    color: #484848;
+  }
+  .sd {
+    font-size: 10px;
     color: #484848;
   }
   h3,
