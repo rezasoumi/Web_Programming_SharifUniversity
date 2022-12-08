@@ -64,10 +64,6 @@
   background: #8e2157;
   color: #fff;
 }
-#button-payment:hover {
-  background-color: rgb(173, 4, 125);
-  color: #f1f1f1;
-}
 .sidebar {
   width: 200px;
   position: fixed;
@@ -138,20 +134,8 @@ body {
 }
 .alert-success {
   position: absolute !important;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   position: absolute;
-  border-radius: 10px;
   background: #a3d599 !important;
-}
-.alert-danger {
-  position: absolute !important;
-  top: 60px;
-  right: 10px;
-  position: absolute;
-  border-radius: 10px;
-}
-.alert-dismissible .close {
-  top: -11px !important;
-  right: -13px !important;
 }
