@@ -23,10 +23,13 @@ function newPerson(name, passport, email, pass) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 function getUser() {
   return user;
 }
 =======
+=======
+>>>>>>> 4025c4cff5be34f3a8e75d57eb00519771e4b114
 =======
 >>>>>>> 4025c4cff5be34f3a8e75d57eb00519771e4b114
 =======
@@ -65,6 +68,9 @@ let loginPerson = async(email, password) => {
 //}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 4025c4cff5be34f3a8e75d57eb00519771e4b114
+=======
 >>>>>>> 4025c4cff5be34f3a8e75d57eb00519771e4b114
 =======
 >>>>>>> 4025c4cff5be34f3a8e75d57eb00519771e4b114
