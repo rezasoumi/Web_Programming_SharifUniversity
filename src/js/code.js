@@ -20,31 +20,6 @@ function newPerson(name, passport, email, pass) {
   user.push(userInput);
 }
 
-function loginPerson(email, password) {
-  let str;
-  for (let x in user) {
-    if (user[x].email == email) {
-      if (user[x].password == password) {
-        localStorage.setItem("userlogin", true);
-        localStorage.setItem("username", user[x].username);
-        break;
-      } else {
-        str = "password is wrong";
-        break;
-      }
-    } else {
-      str = "login failed";
-    }
-  }
-
-  console.log(str);
-}
-
-
-
-
-var e = document.getElementById("number-type");
-var e_val = e.value;
-if (e === "1") {
-  e.innerHTML="aa"
+function getUser() {
+  return user;
 }
