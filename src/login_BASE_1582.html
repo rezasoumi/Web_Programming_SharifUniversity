@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/font-awesome.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/font-awesome.css" />
+    <link rel="stylesheet" href="./scss/_alert.scss" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -39,7 +40,6 @@
         </div>
         <br /><br />
         <button
-          type="button"
           class="button-login"
           onclick="loginPerson(document.getElementById('fmail').value,document.getElementById('fpass').value)"
         >
@@ -64,12 +64,9 @@
         اطلاعات نادرست است!
       </div>
     </div>
-<<<<<<< HEAD
-    <script src="js/code.js"></script>
-
+    <script src="./code.js"></script>
     <script>
       function loginPerson(email, password) {
-        location.replace("./dashboard.html");
         let e = document.getElementsByClassName("button-login");
         let html = `      <div class="alert alert-danger alert-dismissible">
         <button type="button" class="close" data-dismiss="alert">
@@ -77,16 +74,12 @@
         </button>
         رمز عبور نادرست است!
       </div>`;
-        console.log("hello");
-        let user = getUser();
-        console.log(user[0]);
         let str;
         for (let x in user) {
           if (user[x].email == email) {
             if (user[x].password == password) {
               localStorage.setItem("userlogin", true);
               localStorage.setItem("username", user[x].username);
-              str = "success";
               break;
             } else {
               str = "password is wrong";
@@ -96,42 +89,10 @@
             str = "login failed";
           }
         }
-
-        console.log(str);
         if (str == "password is wrong") {
           e.insertAdjacentHTML("afterend", html);
         }
-=======
-    <script src="./js/code.js"></script>
-    <!--<script>
-      let loginPerson = async(email, password) => {
-        var existingUsers = await (await fetch("/js/user.json")).json();
-        let e = document.getElementsByClassName("button-login");
-        let html = `      
-        <div class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert">
-            &times;
-          </button>
-          رمز عبور نادرست است!
-        </div>`;
-        for(let i = 0; i < existingFlights.length; i++) {
-          let user = existingUsers[i];
-          console.log(user);
-          if (user.email == email && user.password == password){
-            localStorage.setItem("userlogin", true);
-            localStorage.setItem("username", user[x].username);
-            window.location.href = '/payment.html';
-            alert("login successfully");
-            window.location.href = '/dashboard.html';
-            return;
-          }
-          else if (user.email == email && user.password != password){
-            e.insertAdjacentHTML("afterend", html);
-          }
-        }
-        return;
->>>>>>> 4025c4cff5be34f3a8e75d57eb00519771e4b114
       }
-    </script>-->
+    </script>
   </body>
 </html>

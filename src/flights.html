@@ -25,24 +25,48 @@
       "date": "1401/11/17",
       "number": "3"
     }
-    //alert(JSON.stringify(requiredFlight));
-    function query(item,x,y){ 
-      return item.from == requiredFlight.from && 
+
+    var lessFlightSeat = {}
+    
+    function query(item){ 
+      var isValidFlight = item.from == requiredFlight.from && 
           item.to == requiredFlight.to && 
           item.date == requiredFlight.date && 
           (item.business_supply_number >= requiredFlight.number || 
           item.economy_supply_number == requiredFlight.number);
+      if (isValidFlight){
+        console.log(requiredFlight.number);
+        console.log((parseInt(item.economy_supply_number) + parseInt(item.business_supply_number))/3);
+        if (requiredFlight.number > (parseInt(item.economy_supply_number) + parseInt(item.business_supply_number))/3)
+          lessFlightSeat[item.id] = true;
+        else
+          lessFlightSeat[item.id] = false;
+        return true;
+      } else{
+        lessFlightSeat[item.id] = false;
+        return false;
+      }
     }
 
     var desiredFlights = existingFlights.filter(query);
-    //alert(JSON.stringify(desiredFlights));
+    
     console.log(desiredFlights);
+
     let dataElement = document.querySelector('.data');
-    desiredFlights.forEach(item => {
-    dataElement?.insertAdjacentHTML('afterbegin', `
-          <div class="bording-pass">
-            <div class="card card-left">
-              <div class="duration-info">
+    desiredFlights.forEach(item => { insertHtmlFlights(item)});
+    
+    function insertHtmlFlights(item){
+      str = '';
+      str += `<div class="bording-pass"> 
+                <div class="card card-left">`;
+      console.log(str);
+      console.log(lessFlightSeat[item.id]);
+      if (lessFlightSeat[item.id] == true){
+        str += `<div class="card card-top">
+                  <span>ظرفیت محدود است</span>
+                </div>`
+      }
+      str += ` <div class="duration-info">
                 <strong class="bold-item">
                   <div class="source">
                     <div class="time">${item.time_start}</div>
@@ -91,10 +115,19 @@
                 </a>
               </div>
             </div>
-          </div>
-    `)});
+          </div>`;
+
+          dataElement?.insertAdjacentHTML('afterbegin', str);
+    }
 };
 main();
+</script>
+
+<script>
+  const checkLessFlightSeat = async () => {
+    document.getElementById("lessFlightSeat").style.visibility="hidden";  
+  }
+  checkLessFlightSeat();
 </script>
 
 <script>

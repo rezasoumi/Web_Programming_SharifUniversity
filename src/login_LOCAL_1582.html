@@ -64,7 +64,6 @@
         اطلاعات نادرست است!
       </div>
     </div>
-<<<<<<< HEAD
     <script src="js/code.js"></script>
 
     <script>
@@ -101,37 +100,7 @@
         if (str == "password is wrong") {
           e.insertAdjacentHTML("afterend", html);
         }
-=======
-    <script src="./js/code.js"></script>
-    <!--<script>
-      let loginPerson = async(email, password) => {
-        var existingUsers = await (await fetch("/js/user.json")).json();
-        let e = document.getElementsByClassName("button-login");
-        let html = `      
-        <div class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert">
-            &times;
-          </button>
-          رمز عبور نادرست است!
-        </div>`;
-        for(let i = 0; i < existingFlights.length; i++) {
-          let user = existingUsers[i];
-          console.log(user);
-          if (user.email == email && user.password == password){
-            localStorage.setItem("userlogin", true);
-            localStorage.setItem("username", user[x].username);
-            window.location.href = '/payment.html';
-            alert("login successfully");
-            window.location.href = '/dashboard.html';
-            return;
-          }
-          else if (user.email == email && user.password != password){
-            e.insertAdjacentHTML("afterend", html);
-          }
-        }
-        return;
->>>>>>> 4025c4cff5be34f3a8e75d57eb00519771e4b114
       }
-    </script>-->
+    </script>
   </body>
 </html>
