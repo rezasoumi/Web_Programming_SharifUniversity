@@ -18,9 +18,9 @@ user.push(user4);
 function newPerson(name, passport, email, pass) {
   const userInput = new Person(name, passport, email, pass);
   user.push(userInput);
+  location.replace("./login.html");
 }
 
 function getUser() {
   return user;
 }
-

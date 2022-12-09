@@ -41,6 +41,7 @@
         <button
           type="button"
           class="button-login"
+          id="button-login"
           onclick="loginPerson(document.getElementById('fmail').value,document.getElementById('fpass').value)"
         >
           Login
@@ -50,52 +51,55 @@
           <a href="./register.html" target="_self">کلیک کنید</a>
         </p>
       </form>
-      <div class="alert alert-success alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert">
-          &times;
-        </button>
-        ورود با موفقیت انجام شد!
-      </div>
-
-      <div class="alert alert-danger alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert">
-          &times;
-        </button>
-        اطلاعات نادرست است!
-      </div>
     </div>
-
-    <script src="./js/code.js"></script>
+    <script src="/js/register.js"></script>
     <script>
       let loginPerson = async (email, password) => {
-        window.location.replace = "./dashboard.html";
-        var existingUsers = await (await fetch("/js/user.json")).json();
-        let e = document.getElementsByClassName("button-login");
-        let html = `      
+        let e = document.getElementById("button-login");
+        let passEror = `      
         <div class="alert alert-danger alert-dismissible">
           <button type="button" class="close" data-dismiss="alert">
             &times;
           </button>
           رمز عبور نادرست است!
         </div>`;
+        let success = `      
+        <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">
+          &times;
+        </button>
+        ورود با موفقیت انجام شد!
+      </div>`;
+        let eror = `      
+        <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">
+          &times;
+        </button>
+        اطلاعات نادرست است!
+      </div>`;
         let user = getUser();
-        let str;
+        console.log(user);
+        let str = false;
         for (let x in user) {
           if (user[x].email == email) {
             if (user[x].password == password) {
               localStorage.setItem("userlogin", true);
               localStorage.setItem("username", user[x].username);
-              alert({html});
+              e.insertAdjacentHTML("afterend", success);
               location.replace("./dashboard.html");
-
+              str = true;
               return;
             } else {
               alert("password is wrong");
+              e.insertAdjacentHTML("afterend", passEror);
+              str = true;
               break;
             }
-          } else {
-            alert("login failed");
           }
+        }
+        if (str == false) {
+          alert("failed");
+          e.insertAdjacentHTML("afterend", eror);
         }
       };
     </script>
