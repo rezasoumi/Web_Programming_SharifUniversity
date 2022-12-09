@@ -1,0 +1,68 @@
+@font-face {
+  font-family: IranSans;
+  src: url(../font/IRANSansXMedium.ttf);
+}
+* {
+  font-family: "BNazanin", IranSans;
+}
+body {
+  direction: rtl !important;
+  text-align: right !important;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  color: #f0f0f0;
+  z-index: 99;
+  background: #8e2157;
+  text-align: center;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  margin-right: 0px;
+}
+.user-profile {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
+.tr-content {
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+.btn-pill {
+  border-radius: 30px;
+}
+.btn-success {
+  background: #13bfa6 !important;
+  border-color: #13bfa6;
+  border: 1px solid;
+}
+.header {
+  flex-grow: 8;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+.dash-btn {
+  flex-grow: 1;
+  background: transparent;
+  border-color: transparent;
+  color: white;
+}
+.header-content p {
+  margin: 0 !important;
+}
+.header-content {
+  margin-right: 10px;
+}
