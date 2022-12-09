@@ -45,7 +45,7 @@ document.getElementById("show-flights").onclick = () => {
 // };
 const addToList = async () => {
   const existingFlights: FlightData[] = await (
-    await fetch("/flights.json")
+    await fetch("/js/flights.json")
   ).json();
   existingFlights.forEach((x) => {
     const add = (lid: string, txt: string) => {

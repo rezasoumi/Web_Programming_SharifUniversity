@@ -26,7 +26,7 @@ const sendToPayment = async(type: string, id: string, price: string, number: str
 }
 
 const main = async () => {
-  var existingFlights = await (await fetch("/js/flights.json")).json();
+  const existingFlights = await (await fetch("/js/flights.json")).json();
   const requiredFlight = JSON.parse(sessionStorage.getItem("search-query") || '[]');
   /* TEST 
   const requiredFlight = {
@@ -44,11 +44,12 @@ const main = async () => {
         item.economy_supply_number == requiredFlight.number);
   }
 
-  var desiredFlights = existingFlights.filter(query);
+  const desiredFlights = existingFlights.filter(query);
   
   console.log(desiredFlights);
   const dataElement = document.querySelector('.data');
-  desiredFlights.forEach((item: { time_start: any; from: any; stop_num: any; flight_duration: any; time_end: any; to: any; id: any; business_price: any; economy_price: any; }) => {
+  desiredFlights.forEach((item: { time_start: any; from: any; stop_num: any; flight_duration: any; time_end: any; to: any; id: any; business_price: any; economy_price: any;
+    business_supply_count: number; economy_supply_count: number; }) => {
   dataElement?.insertAdjacentHTML('afterbegin', `
         <div class="bording-pass">
           <div class="card card-left">
@@ -89,6 +90,7 @@ const main = async () => {
               <a id="businessClick" href="javascript:void(0);" onclick="sendToPayment('business', '${item.id}', '${item.business_price}', ${requiredFlight.number})" aria-label="Business <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.business_price}">
                 <h5>
                   <span>Business</span>
+                  ${item.business_supply_count <= 3 ? '<span class="red">کمتر از سه عدد باقی مانده است</span>' : ''}
                 </h5>
                 <h3>
                   <span> <span>IRR</span>&nbsp;1,641,100,000</span>
@@ -97,7 +99,10 @@ const main = async () => {
             </div>
             <div class="card card-price">
               <a id="economyClick" href="javascript:void(0);" onclick="sendToPayment('economy', '${item.id}', '${item.economy_price}', ${requiredFlight.number})" aria-label="Economy <span class=&quot;&quot;>IRR</span>&amp;nbsp;${item.economy_price}">
-                <h5><span>Economy</span></h5>
+                <h5>
+                  <span>Economy</span>
+                  ${item.economy_supply_count <= 3 ? '<span class="red">کمتر از سه عدد باقی مانده است</span>' : ''}
+                </h5>
                 <h3>
                   <span><span>IRR</span>&nbsp;554,297,000</span>
                 </h3>
