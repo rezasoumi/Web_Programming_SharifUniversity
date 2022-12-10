@@ -33,8 +33,7 @@ body {
 }
 
 .card.card-top {
-  margin-top: auto;
-  text-align: right;
+  text-align: center;
 }
 .bording-pass .card.card-buttom {
   text-align: left;
@@ -153,7 +152,7 @@ a {
 
   .city {
     font-size: 18px;
-    color: #484848;
+    color: #202020;
   }
   * {
     font-size: 16px;
