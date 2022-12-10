@@ -17,6 +17,26 @@ darkModeSwitch.addEventListener("change", (e) => {
   }
 });
 
+let passengerCount = 1;
+const passengerCountInput = document.getElementById("passengerCount");
+passengerCountInput.setAttribute("value", "1");
+
+const addPassengerButton = document.getElementById("addPassenger");
+
+addPassengerButton.onclick = () => {
+  passengerCount++;
+  passengerCountInput.setAttribute("value", String(passengerCount));
+}
+
+const removePassengerButton = document.getElementById("removePassenger");
+
+removePassengerButton.onclick = () => {
+  if (passengerCount > 1) {
+    passengerCount--;
+  }
+  passengerCountInput.setAttribute("value", String(passengerCount));
+}
+
 type FlightData = {
   from: string;
   to: string;

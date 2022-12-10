@@ -53,13 +53,17 @@
         <article
           class="relative -mt-[50px] overflow-hidden rounded-lg max-sm:-mx-3.5"
         >
-          <header class="dark:bg-amber-900 bg-teal-400 py-3 text-center text-2xl dark:text-white text-black">
+          <header
+            class="bg-teal-400 py-3 text-center text-2xl text-black dark:bg-amber-900 dark:text-white"
+          >
             <span
               class="fa-solid fa-plane-up relative top-0.5 pl-1.5 text-2xl"
             ></span>
             خرید بلیت
           </header>
-          <div class="flex flex-wrap justify-center bg-white dark:bg-black dark:text-white p-7">
+          <div
+            class="flex flex-wrap justify-center bg-white p-7 dark:bg-black dark:text-white"
+          >
             <div class="mb-6 w-full px-1 sm:w-3/5 lg:mb-0 lg:w-2/5">
               <div
                 class="relative flex h-full flex-wrap overflow-hidden rounded-lg border border-solid border-neutral-500"
@@ -75,7 +79,7 @@
                   <datalist id="from-list"></datalist>
                 </label>
                 <span
-                  class="fa-solid fa-right-left absolute left-[12%] top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border border-solid border-neutral-500 bg-white dark:bg-black dark:text-white p-2 max-sm:rotate-90 sm:left-1/2"
+                  class="fa-solid fa-right-left absolute left-[12%] top-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full border border-solid border-neutral-500 bg-white p-2 dark:bg-black dark:text-white max-sm:rotate-90 sm:left-1/2"
                 ></span>
                 <label
                   class="h-12 w-full border-solid border-neutral-500 pr-8 max-sm:border-t sm:w-1/2 sm:border-r"
@@ -109,18 +113,35 @@
             </div>
             <div class="h-12 w-1/2 px-1 lg:w-1/6">
               <div
-                class="flex h-full items-center overflow-hidden rounded-lg border border-solid border-neutral-500"
+                class="flex h-full items-center justify-between overflow-hidden rounded-lg border border-solid border-neutral-500"
               >
-                <span class="fa-solid fa-users px-1"></span>
-                <label class="pr-2">
-                  <input class="h-full outline-0" readonly type="number" />
-                </label>
+                <div>
+                  <span class="fa-solid fa-users px-1"></span>
+                  <label class="inline-block w-1/3 pr-2">
+                    <input
+                      id="passengerCount"
+                      class="h-full w-full outline-0"
+                      readonly
+                      type="number"
+                    />
+                  </label>
+                </div>
+                <div class="ml-2 flex flex-col">
+                  <span
+                    id="addPassenger"
+                    class="fa-solid fa-plus before:rounded before:border before:border-solid before:border-green-600 before:bg-green-600 before:px-0.5 before:text-white"
+                  ></span>
+                  <span
+                    id="removePassenger"
+                    class="fa-solid fa-minus mt-1.5 before:rounded before:border before:border-solid before:border-gray-400 before:bg-gray-400 before:px-0.5 before:text-white"
+                  ></span>
+                </div>
               </div>
             </div>
             <div class="h-12 w-1/2 px-1 lg:w-1/6">
               <button
                 id="show-flights"
-                class="h-full w-full rounded-lg bg-orange-500 py-3 text-center text-xl text-white dark:text-black hover:bg-orange-400 hover:transition-all"
+                class="h-full w-full rounded-lg bg-orange-500 py-3 text-center text-xl text-white hover:bg-orange-400 hover:transition-all dark:text-black"
               >
                 جستجو
               </button>
@@ -137,7 +158,9 @@
           </header>
           <div class="mt-6 flex flex-wrap">
             <div class="w-full p-2.5 md:w-1/3">
-              <article class="w-full overflow-hidden rounded-xl bg-white dark:bg-black dark:text-white">
+              <article
+                class="w-full overflow-hidden rounded-xl bg-white dark:bg-black dark:text-white"
+              >
                 <img
                   src="img/Istanbul1.jpg"
                   class="md:h-[250px]"
@@ -150,7 +173,9 @@
               </article>
             </div>
             <div class="w-full p-2.5 md:w-1/3">
-              <article class="w-full overflow-hidden rounded-xl bg-white dark:bg-black dark:text-white">
+              <article
+                class="w-full overflow-hidden rounded-xl bg-white dark:bg-black dark:text-white"
+              >
                 <img src="img/Yazd.jpg" class="md:h-[250px]" alt="Yazd Image" />
                 <div class="py-2 pr-3">
                   <h2 class="text-lg font-bold">تهران - یزد - تهران</h2>
@@ -159,7 +184,9 @@
               </article>
             </div>
             <div class="w-full p-2.5 md:w-1/3">
-              <article class="w-full overflow-hidden rounded-xl bg-white dark:bg-black dark:text-white">
+              <article
+                class="w-full overflow-hidden rounded-xl bg-white dark:bg-black dark:text-white"
+              >
                 <img
                   src="img/Ankara.jpg"
                   class="md:h-[250px]"
@@ -175,6 +202,7 @@
         </article>
       </div>
     </main>
+    <<<<<<< Updated upstream
     <div class="footerContainer">
       <div class="footerLinksWrapper">
         <div class="contain-footer">
@@ -196,5 +224,8 @@
         <ul class="footerLinksItem"></ul>
       </div>
     </div>
+    =======
+    <footer></footer>
+    >>>>>>> Stashed changes
   </body>
 </html>
