@@ -1,11 +1,11 @@
 @font-face {
-  font-family: Sahel VF;
-  src: url("../font/Sahel-VF.woff2") format("woff2");
+  font-family: IranSans;
+  src: url(../font/IRANSansXMedium.ttf);
 }
 
 * {
-  font-family: Sahel VF, system-ui;
-  font-size: .9rem;
+  font-family: "IranSans", IranSans;
+  font-size: 0.9rem;
 }
 body {
   direction: rtl !important;
@@ -19,7 +19,7 @@ body {
   width: 100%;
   color: #f0f0f0;
   z-index: 99;
-  background: #8e2157;
+  background: linear-gradient(304deg, #00a693, #002023);
   text-align: center;
   height: 80px;
   display: flex;
