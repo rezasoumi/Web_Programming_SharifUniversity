@@ -1,9 +1,11 @@
 @font-face {
-  font-family: IranSans;
-  src: url(../font/IRANSansXMedium.ttf);
+  font-family: Sahel VF;
+  src: url("../font/Sahel-VF.woff2") format("woff2");
 }
+
 * {
-  font-family: "BNazanin", IranSans;
+  font-family: Sahel VF, system-ui;
+  font-size: .9rem;
 }
 body {
   direction: rtl !important;
@@ -33,6 +35,7 @@ body {
   border-radius: 50%;
   width: 70px;
   height: 70px;
+  margin-right: 20px;
 }
 
 .tr-content {

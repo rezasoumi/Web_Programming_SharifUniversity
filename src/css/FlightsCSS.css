@@ -1,14 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap");
-
+@font-face {
+  font-family: Sahel VF;
+  src: url("../font/Sahel-VF.woff2") format("woff2");
+}
 * {
   box-sizing: border-box;
   direction: rtl;
+  font-family: Sahel VF, system-ui;
+  font-size: 0.9rem;
 }
 
 body {
   background-color: white;
   background-size: cover;
-  font-family: "BNazanin", "Nunito Sans", sans-serif;
   height: 100vh;
 }
 
