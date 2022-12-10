@@ -46,4 +46,7 @@
       flex-direction: column;
     }
   }
+  .inverted {
+    background: black;
+  }
 }
