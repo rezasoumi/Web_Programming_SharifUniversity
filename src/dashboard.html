@@ -10,7 +10,7 @@
     />
   </head>
   <body>
-    <div class="main-page">
+    <div class="main-page dark:text-white">
       <div class="sidebar">
         <div class="header">
           <img class="user-profile" src="./img/1.jpg" />
@@ -23,7 +23,7 @@
           خروج
         </button>
       </div>
-      <div class="content">
+      <div class="content dark:text-white dark:bg-black">
         <p>داشبورد</p>
         <p>برای جزییات بیشتر روی تراکنش مربوطه کلیک کنید</p>
         <table class="table-hover table">
@@ -40,6 +40,11 @@
         </table>
       </div>
     </div>
+    <script>
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.getElementsByTagName("html")[0].classList.add("dark");
+      }
+    </script>
     <script src="/js/dashboard.js"></script>
   </body>
 </html>

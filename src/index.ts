@@ -3,6 +3,10 @@ import "@fortawesome/fontawesome-free/css/solid.css";
 import "@fortawesome/fontawesome-free/css/fontawesome.css";
 import "@fortawesome/fontawesome-free/css/brands.css";
 
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.getElementsByTagName("html")[0].classList.add("dark");
+}
+
 const darkModeSwitch = document.querySelector("#darkModeSwitch");
 darkModeSwitch.addEventListener("change", (e) => {
   const target = e.target as HTMLInputElement;
