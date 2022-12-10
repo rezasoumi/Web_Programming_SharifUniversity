@@ -50,7 +50,11 @@ type FlightData = {
 //   document.getElementById("date-end").hidden = typeInput.value !== "return";
 // };
 document.getElementById("login").onclick = () => {
-  window.location.href = "/login.html";
+  let isLogin = JSON.parse(localStorage.getItem("userlogin") || '[]');
+  if (isLogin == true)
+    window.location.href = '/dashboard.html';
+  else
+    window.location.href = "/login.html";
 };
 document.getElementById("show-flights").onclick = () => {
   const data: FlightData = {
