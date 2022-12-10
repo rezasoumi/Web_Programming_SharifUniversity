@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="css/font-awesome.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -19,11 +20,14 @@
             <p id="dash-username"></p>
           </div>
         </div>
+        <a class="container-icon" href="index.html">
+          <i class="fa fa-home my-user"></i>
+        </a>
         <button type="button" class="dash-btn" onclick="exitPerson()">
           خروج
         </button>
       </div>
-      <div class="content dark:text-white dark:bg-black">
+      <div class="content dark:bg-black dark:text-white">
         <p>داشبورد</p>
         <p>برای جزییات بیشتر روی تراکنش مربوطه کلیک کنید</p>
         <table class="table-hover table">
@@ -41,7 +45,10 @@
       </div>
     </div>
     <script>
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      ) {
         document.getElementsByTagName("html")[0].classList.add("dark");
       }
     </script>

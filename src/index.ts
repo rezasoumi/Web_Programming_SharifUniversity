@@ -41,7 +41,6 @@ type FlightData = {
   from: string;
   to: string;
   date: string;
-  number: string;
 };
 
 // const typeInput = document.getElementById("type") as HTMLInputElement;
@@ -57,7 +56,6 @@ document.getElementById("show-flights").onclick = () => {
     from: (document.getElementById("from") as HTMLInputElement).value,
     to: (document.getElementById("to") as HTMLInputElement).value,
     date: (document.getElementById("date") as HTMLInputElement).value,
-    number: (document.getElementById("passengerCount") as HTMLInputElement).value,
   };
   sessionStorage.setItem("search-query", JSON.stringify(data));
   window.location.href = "/flights.html";

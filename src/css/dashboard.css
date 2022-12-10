@@ -67,3 +67,10 @@ body {
 .header-content {
   margin-right: 10px;
 }
+.fa.fa-home.my-user {
+  font-size: 25px;
+}
+.container-icon,
+.container-icon:hover {
+  color: white;
+}
