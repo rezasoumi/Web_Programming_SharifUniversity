@@ -20,6 +20,7 @@
   .footerContainer {
     width: 100%;
     background: linear-gradient(304deg, #00a693, #f9f9f9);
+    margin-top: 20px;
   }
   .footerLinksItem {
     flex-grow: 1;
@@ -46,7 +47,7 @@
       flex-direction: column;
     }
   }
-  .inverted {
-    background: black;
+  .my-inverted {
+    background: black !important;
   }
 }
