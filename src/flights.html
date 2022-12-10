@@ -15,6 +15,9 @@
 <div class="data"></div>
 
 <script>
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.getElementsByTagName("html")[0].classList.add("dark");
+  }
   const main = async () => {
     var existingFlights = await (await fetch("/js/flights.json")).json();
     console.log(existingFlights);

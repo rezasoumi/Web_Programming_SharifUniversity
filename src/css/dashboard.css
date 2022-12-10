@@ -40,7 +40,6 @@ body {
 .tr-content {
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
 }
 .btn-pill {
   border-radius: 30px;
