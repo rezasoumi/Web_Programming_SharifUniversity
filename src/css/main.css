@@ -47,7 +47,7 @@
       flex-direction: column;
     }
   }
-  .my-inverted {
-    background: black !important;
-  }
+}
+.my-inverted {
+  background: #00a693;
 }
