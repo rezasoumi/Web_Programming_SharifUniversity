@@ -21,13 +21,13 @@
   const main = async () => {
     var existingFlights = await (await fetch("/js/flights.json")).json();
     console.log(existingFlights);
-    //let requiredFlight = JSON.parse(sessionStorage.getItem("search-query") || '[]');
-    let requiredFlight = {
+    let requiredFlight = JSON.parse(sessionStorage.getItem("search-query") || '[]');
+    /*let requiredFlight = {
       "from": "تهران",
       "to": "بوستون",
       "date": "1401/11/17",
       "number": "3"
-    }
+    }*/
 
     var lessFlightSeat = {}
     
@@ -126,12 +126,12 @@
 main();
 </script>
 
-<script>
+<!--<script>
   const checkLessFlightSeat = async () => {
     document.getElementById("lessFlightSeat").style.visibility="hidden";  
   }
   checkLessFlightSeat();
-</script>
+</script>-->
 
 <script>
   let sendToPayment = async(type, id, price, number) => { 
