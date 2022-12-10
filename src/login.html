@@ -86,6 +86,13 @@
               localStorage.setItem("userlogin", true);
               localStorage.setItem("username", user[x].username);
               e.insertAdjacentHTML("afterend", success);
+              let redirectToPayment = JSON.parse(localStorage.getItem("redirectToPayment") || '[]');
+              if (redirectToPayment == true){
+                localStorage.setItem("redirectToPayment", false);
+                window.location.href = '/payment.html';
+                str = true;
+                return;
+              }
               location.replace("./dashboard.html");
               str = true;
               return;
