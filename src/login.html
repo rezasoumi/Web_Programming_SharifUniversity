@@ -86,7 +86,7 @@
               localStorage.setItem("userlogin", true);
               localStorage.setItem("username", user[x].username);
               e.insertAdjacentHTML("afterend", success);
-              location.replace("./dashboard.html");
+              location.assign("./dashboard.html");
               str = true;
               return;
             } else {
