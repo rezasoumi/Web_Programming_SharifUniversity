@@ -1,5 +1,5 @@
 import "./css/FlightsCSS.css";
-
+/*
 const sendToPayment = async(type: string, id: string, price: string, number: string) => { 
   var existingFlights = await (await fetch("/js/flights.json")).json();
   for(let i = 0; i < existingFlights.length; i++) {
@@ -28,13 +28,13 @@ const sendToPayment = async(type: string, id: string, price: string, number: str
 const main = async () => {
   const existingFlights = await (await fetch("/js/flights.json")).json();
   const requiredFlight = JSON.parse(sessionStorage.getItem("search-query") || '[]');
-  /* TEST 
+   TEST 
   const requiredFlight = {
     "from": "tehran",
     "to": "boston",
     "date": "2022-11-29",
     "number": "2"
-  }*/
+  }
   
   function query(item: { from: any; to: any; date: any; business_supply_number: number; economy_supply_number: any; }){ 
     return item.from == requiredFlight.from && 
@@ -116,3 +116,4 @@ const main = async () => {
 main();
 
 
+*/
