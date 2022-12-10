@@ -25,13 +25,26 @@
   margin-top: 40px;
   display: block;
   width: 100%;
-  max-width: 340px;
+  max-width: 370px;
   margin: 0 auto;
   padding: 80px 32px;
   border-radius: 29px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
   background: linear-gradient(304deg, #00a693, #002023);
 }
+
+.containerPayment {
+  margin-top: 40px;
+  display: block;
+  width: 100%;
+  max-width: 410px;
+  margin: 0 auto;
+  padding: 80px 32px;
+  border-radius: 29px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  background: linear-gradient(304deg, #00a693, #002023);
+}
+
 .input-payment {
   display: block;
   width: 200px;
