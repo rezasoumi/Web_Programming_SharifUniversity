@@ -84,7 +84,7 @@ const addToList = async () => {
   });
 };
 addToList();
-var className = "inverted";
+var className = "my-inverted";
 var scrollTrigger = 60;
 
 window.onscroll = function() {
