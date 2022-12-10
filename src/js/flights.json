@@ -17,7 +17,7 @@
     "id": "2",
     "from": "تهران",
     "to": "نیوجرسی",
-    "date": "2022-9-28",
+    "date": "2022-09-28",
     "time_start": "22:30",
     "time_end": "8:00",
     "flight_duration": "33.5",
@@ -31,7 +31,7 @@
     "id": "3",
     "from": "تهران",
     "to": "نیوجرسی",
-    "date": "2022-9-28",
+    "date": "2022-09-28",
     "time_start": "23:30",
     "time_end": "8:00",
     "flight_duration": "32.5",
@@ -39,7 +39,7 @@
     "economy_price": "516,287,000",
     "business_price": "20,341,100,000",
     "economy_supply_number": "2",
-    "business_supply_number": "1"
+    "business_supply_number": "5"
   },
   {
     "id": "4",

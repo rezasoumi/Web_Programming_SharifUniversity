@@ -35,8 +35,8 @@
       var isValidFlight = item.from == requiredFlight.from && 
           item.to == requiredFlight.to && 
           item.date == requiredFlight.date && 
-          (item.business_supply_number >= requiredFlight.number || 
-          item.economy_supply_number == requiredFlight.number);
+          (parseInt(item.business_supply_number) >= parseInt(requiredFlight.number) || 
+          parseInt(item.economy_supply_number) == parseInt(requiredFlight.number));
       if (isValidFlight){
         console.log(requiredFlight.number);
         console.log((parseInt(item.economy_supply_number) + parseInt(item.business_supply_number))/3);
