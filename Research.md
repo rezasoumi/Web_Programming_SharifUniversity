@@ -35,7 +35,7 @@
 <script type="text/javascript" src="js/paper.js"></script>
 <!-- Define inlined PaperScript associate it with myCanvas -->
 <script type="text/paperscript" canvas="myCanvas">
-  // Your code here. An example:
+    // Your code here. An example:
 	// Create a Paper.js Path to draw a line into it:
 	var path = new Path();
 	// Give the stroke a color
@@ -53,3 +53,36 @@
 </body>
 </html>
 ```
+
+توصیه می شود که در هر مثال، کد هدف را خودتان بنویسید یا این که کد داده شده را تست کنید و پارامتر های آن را
+تغییر دهید تا فرایند یادگیری بهتری داشته باشید.
+
+## ایجاد تصاویر
+
+بیایید با کد ساده ای که در قسمت بالا داشتیم شروع کنیم:
+
+```JS
+// Create a Paper.js Path to draw a line into it:
+var path = new Path();
+// Give the stroke a color
+path.strokeColor = 'black';
+var start = new Point(100, 100);
+// Move to start and draw a line from there
+path.moveTo(start);
+// Note the plus operator on Point objects.
+// PaperScript does that for us, and much more!
+path.lineTo(start + [ 100, -50 ]);
+```
+
+![](results/line.svg)
+
+## تعامل با کاربر
+
+## ایجاد انیمیشن ها
+
+## Paperscript vs Javascript
+
+## استفاده در Node js
+
+## درون پیاده سازی Paper js
+
