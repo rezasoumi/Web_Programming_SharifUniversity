@@ -2,6 +2,7 @@ import "./css/main.css";
 import "@fortawesome/fontawesome-free/css/solid.css";
 import "@fortawesome/fontawesome-free/css/fontawesome.css";
 import "@fortawesome/fontawesome-free/css/brands.css";
+import { post } from "./network";
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
   document.getElementsByTagName("html")[0].classList.add("dark");
@@ -56,14 +57,17 @@ document.getElementById("login").onclick = () => {
   else
     window.location.href = "/login.html";
 };
-document.getElementById("show-flights").onclick = () => {
+document.getElementById("show-flights").onclick = async () => {
   const data: FlightData = {
     from: (document.getElementById("from") as HTMLInputElement).value,
     to: (document.getElementById("to") as HTMLInputElement).value,
     date: (document.getElementById("date") as HTMLInputElement).value,
     number: (document.getElementById("passengerCount") as HTMLInputElement).value,
   };
+  const r = await post("/search", data);
+  console.log(r);
   sessionStorage.setItem("search-query", JSON.stringify(data));
+  sessionStorage.setItem("search-result", JSON.stringify(r));
   window.location.href = "/flights.html";
 };
 // document.getElementById("my-trips").onclick = () => {
@@ -73,23 +77,22 @@ document.getElementById("show-flights").onclick = () => {
 //     window.location.href = "/login.html";
 //   }
 // };
+
 const addToList = async () => {
-  const existingFlights: FlightData[] = await (
-    await fetch("/js/flights.json")
-  ).json();
-  existingFlights.forEach((x) => {
+  const existingFlights: any = await post("/cityList", {});
+  for (const x of existingFlights) {
     const add = (lid: string, txt: string) => {
       const c = document.createElement("option");
       c.value = txt;
       document.getElementById(lid).appendChild(c);
     };
-    add("from-list", x.from);
-    add("to-list", x.to);
-  });
+    add("from-list", x.city);
+    add("to-list", x.city);
+  }
 };
 addToList();
-var className = "my-inverted";
-var scrollTrigger = 60;
+const className = "my-inverted";
+const scrollTrigger = 60;
 
 window.onscroll = function() {
   // We add pageYOffset for compatibility with IE.
