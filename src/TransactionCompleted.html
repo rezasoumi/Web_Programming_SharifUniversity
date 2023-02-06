@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+</head>
+
+<body>
+    <div hidden id="/1">عملیات با موفقیت انجام شد.</div>
+    <div hidden id="/2">عملیات با موفقیت انجام نشد.2</div>
+    <div hidden id="/3">عملیات با موفقیت انجام نشد.3</div>
+    <div hidden id="/4">عملیات با موفقیت انجام نشد.4</div>
+    <div hidden id="/5">عملیات با موفقیت انجام نشد.5</div>
+    <script>
+        const x = window.location.toString().slice(-2);
+        document.getElementById(x).hidden = false;
+    </script>
+</body>
+</html>

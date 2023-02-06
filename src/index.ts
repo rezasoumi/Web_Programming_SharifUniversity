@@ -51,7 +51,7 @@ type FlightData = {
 //   document.getElementById("date-end").hidden = typeInput.value !== "return";
 // };
 document.getElementById("login").onclick = () => {
-  let isLogin = JSON.parse(localStorage.getItem("userlogin") || '[]');
+  const isLogin = JSON.parse(localStorage.getItem("userlogin") || '[]');
   if (isLogin == true)
     window.location.href = '/dashboard.html';
   else
@@ -79,7 +79,7 @@ document.getElementById("show-flights").onclick = async () => {
 // };
 
 const addToList = async () => {
-  const existingFlights: any = await post("/cityList", {});
+  const existingFlights: { city: string }[] = await post("/cityList", {});
   for (const x of existingFlights) {
     const add = (lid: string, txt: string) => {
       const c = document.createElement("option");
