@@ -10,9 +10,13 @@ type Passenger = {
     flightDate: string,
 };
 
+type TransactionData = {
+    amount: number;
+};
+
 let desireFlight = JSON.parse(sessionStorage.getItem("flights-to-payment") || '{}');
 
-document.getElementById('button-payment')!.onclick = () => {
+document.getElementById('button-payment')!.onclick = async () => {
     const prevTickets: Ticket[] = JSON.parse(localStorage.getItem('bought-tickets') || '[]');
     const currentTicket: Ticket = {
         passengers: Array.from(document.querySelectorAll('.input-row')).map((e) => {
@@ -22,7 +26,18 @@ document.getElementById('button-payment')!.onclick = () => {
             return { name, code, flightDate };
         })
     };
+    var amount;
+    if (desireFlight.type == "business")
+        amount = currentTicket.passengers.length * +(desireFlight.y_price);
+    else
+        amount = currentTicket.passengers.length * +(desireFlight.j_price);
+
+    const data: TransactionData = {
+        amount: amount
+    };
+
     localStorage.setItem('bought-tickets',JSON.stringify([...prevTickets, currentTicket]));
+    const r = await post("/transaction", data);
     window.location.href = "/dashboard.html";
 };
 

@@ -1,3 +1,13 @@
+type Ticket = {
+    passengers: Passenger[],
+};
+
+type Passenger = {
+    name: string,
+    code: string,
+    flightDate: string,
+};
+
 const di = document.getElementById('dashboard-items')!;
 const tickets: Ticket[] = JSON.parse(localStorage.getItem('bought-tickets') || '[]');
 console.log(tickets);
