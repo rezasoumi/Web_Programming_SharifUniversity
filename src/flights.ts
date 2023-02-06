@@ -9,6 +9,7 @@ if (
   document.getElementsByTagName("html")[0].classList.add("dark");
 }
 const main = async () => {
+  
   const requiredFlight = JSON.parse(
     sessionStorage.getItem("search-query") || "[]"
   );
@@ -64,7 +65,7 @@ const main = async () => {
         </div>
         <div class="card card-footer">
           <div class="card card-price">
-            <a href="javascript:void(0);" onclick="sendToPayment('business', '${item.flight_id}', '${item.f_price}', ${requiredFlight.number})">
+            <a href="javascript:void(0);" onclick="sendToPayment('business', '${item.flight_id}', ${requiredFlight.number})">
               <h5>
                 <span>Business</span>
               </h5>
@@ -74,7 +75,7 @@ const main = async () => {
             </a>
           </div>
           <div class="card card-price">
-            <a href="javascript:void(0);" onclick="sendToPayment('economy', '${item.flight_id}', '${item.j_price}', ${requiredFlight.number})">
+            <a href="javascript:void(0);" onclick="sendToPayment('economy', '${item.flight_id}', ${requiredFlight.number})">
               <h5><span>Economy</span></h5>
               <h3>
                 <span>${item.j_price}<span>$</span></span>
@@ -87,37 +88,47 @@ const main = async () => {
     dataElement?.insertAdjacentHTML("afterbegin", str);
   }
 };
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-window.sendToPayment = async (type: string, id: string, price: number, count: number) => {
-  alert(`${type} - ${id} - ${price} - ${count}`);
-  // let isLogin = JSON.parse(localStorage.getItem("userlogin") || "[]");
-  // var existingFlights = await (await fetch("/js/flights.json")).json();
-  // for (let i = 0; i < existingFlights.length; i++) {
-  //   let flight = existingFlights[i];
-  //   if (flight.id == id) {
-  //     let data = {
-  //       from: flight.from,
-  //       to: flight.to,
-  //       type: type, // business or economy
-  //       date: flight.date,
-  //       time_start: flight.time_start,
-  //       time_end: flight.time_end,
-  //       stop_num: flight.stop_num,
-  //       flight_duration: flight.flight_duration,
-  //       price: price,
-  //       number: number,
-  //     };
-  //     sessionStorage.setItem("flights-to-payment", JSON.stringify(data));
-  //     if (isLogin == false) {
-  //       localStorage.setItem("redirectToPayment", true);
-  //       window.location.href = "/login.html";
-  //       return;
-  //     }
-  //     window.location.href = "/payment.html";
-  //     return;
-  //   }
-  // }
-  // return;
+window.sendToPayment = async (type: string, id: string, count: number) => {
+  alert(`${type} - ${id} - ${count}`);
+
+  let isLogin = JSON.parse(localStorage.getItem("userlogin") || "[]");
+
+  const availableFlightsInSearch = JSON.parse(
+    sessionStorage.getItem("search-result") || "[]"
+  );
+  
+  for (let i = 0; i < availableFlightsInSearch.length; i++) {
+    let flight = availableFlightsInSearch[i];
+    if (flight.flight_id == id) {
+      let data = {
+        flight_serial: flight.flight_serial,
+        flight_id: flight.flight_id,
+        origin: flight.origin,
+        destination: flight.destination,
+        aircraft: flight.aircraft,
+        departure_utc: flight.departure_utc,
+        duration: flight.duration,
+        y_price: flight.y_price,
+        j_price: flight.j_price,
+        f_price: flight.f_price,
+        source_city: flight.source_city,
+        dest_city: flight.dest_city,
+        type: type,
+        number: count,
+      };
+      sessionStorage.setItem("flights-to-payment", JSON.stringify(data));
+      if (isLogin == false) {
+        localStorage.setItem("redirectToPayment", 'true');
+        window.location.href = "/login.html";
+        return;
+      }
+      window.location.href = "/payment.html";
+      return;
+    }
+  }
+  
 };
 
 main();

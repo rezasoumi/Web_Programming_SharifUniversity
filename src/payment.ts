@@ -1,3 +1,5 @@
+import { post } from "./network";
+
 type Ticket = {
     passengers: Passenger[],
 };
@@ -16,7 +18,7 @@ document.getElementById('button-payment')!.onclick = () => {
         passengers: Array.from(document.querySelectorAll('.input-row')).map((e) => {
             const name = (e.children[0] as HTMLInputElement).value;
             const code = (e.children[1] as HTMLInputElement).value;
-            const flightDate = desireFlight.date;
+            const flightDate = desireFlight;
             return { name, code, flightDate };
         })
     };
