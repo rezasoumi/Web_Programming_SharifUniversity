@@ -1,4 +1,4 @@
-export const post = async (url: string, data: unknown): Promise<unknown> => {
+export const post = async (url: string, data: unknown): Promise<any> => {
   const resp = await fetch(`http://localhost:12345${url}`, {
     method: "POST",
     headers: {

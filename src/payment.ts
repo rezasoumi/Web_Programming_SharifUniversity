@@ -1,3 +1,5 @@
+import { type } from "os";
+import { json } from "stream/consumers";
 import { post } from "./network";
 
 type Ticket = {
@@ -12,6 +14,10 @@ type Passenger = {
 
 type TransactionData = {
     amount: number;
+};
+
+type TransactionPage = {
+    url: string;
 };
 
 let desireFlight = JSON.parse(sessionStorage.getItem("flights-to-payment") || '{}');
@@ -37,8 +43,12 @@ document.getElementById('button-payment')!.onclick = async () => {
     };
 
     localStorage.setItem('bought-tickets',JSON.stringify([...prevTickets, currentTicket]));
-    const r = await post("/transaction", data);
-    window.location.href = "/dashboard.html";
+
+    const r:TransactionPage = await post("/transaction", data);
+    console.log(r);
+    window.location.href = r.url;
+    alert("hey");
+    // window.location.href = "/dashboard.html";
 };
 
 

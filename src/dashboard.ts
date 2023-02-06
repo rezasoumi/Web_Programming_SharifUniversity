@@ -1,3 +1,5 @@
+import { post } from "./network";
+
 type Ticket = {
     passengers: Passenger[],
 };
@@ -8,7 +10,21 @@ type Passenger = {
     flightDate: string,
 };
 
+type UserId = {
+    userId: string
+}
+
 const di = document.getElementById('dashboard-items')!;
+
+////////////////////////////////////////////////////////////////////////
+// user Id must get from parsa 
+const data: UserId = {
+    userId: "123"
+};
+const r = post("/getAllPurchases", data);
+console.log(r);
+////////////////////////////////////////////////////////////////////////
+
 const tickets: Ticket[] = JSON.parse(localStorage.getItem('bought-tickets') || '[]');
 console.log(tickets);
 tickets.forEach((ticket, i) => {
