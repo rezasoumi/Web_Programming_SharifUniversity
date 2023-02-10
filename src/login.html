@@ -1,120 +1,99 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta
-      content="initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width"
-      name="viewport"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/font-awesome.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-  </head>
-  <body>
-    <div class="containerLogin">
-      <form id="form" name="form1">
-        <img src="./img/qatar.svg" />
-        <h2>صفحه&nbspی ورود</h2>
-        <div class="container-icon">
-          <i class="fa fa-user my-user"></i>
-          <input
-            type="email"
-            id="fmail"
-            name="fmail"
-            placeholder="ایمیل"
-            class="input-Item"
-          />
-        </div>
-        <br />
-        <div class="container-icon">
-          <i class="fa fa-envelope my-user"></i>
-          <input
-            type="password"
-            id="fpass"
-            name="fpass"
-            placeholder="رمز عبور"
-            class="input-Item"
-          />
-        </div>
-        <br /><br />
-        <button
-          type="button"
-          class="button-login"
-          id="button-login"
-          onclick="loginPerson(document.getElementById('fmail').value,document.getElementById('fpass').value)"
-        >
-          Login
-        </button>
-        <p class="info">
-          ثبت&nbspنام نکرده&nbspاید
-          <a href="./register.html" target="_self">کلیک کنید</a>
-        </p>
-      </form>
-    </div>
-    <script src="/js/register.js"></script>
-    <script>
-      let loginPerson = async (email, password) => {
-        let e = document.getElementById("button-login");
-        let passEror = `      
-        <div class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert">
-            &times;
-          </button>
-          رمز عبور نادرست است!
-        </div>`;
-        let success = `      
+
+<head>
+  <meta content="initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width" name="viewport" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/font-awesome.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <div class="containerLogin">
+    <form id="form" name="form1">
+      <img src="./img/qatar.svg" />
+      <h2>صفحه&nbspی ورود</h2>
+      <div class="container-icon">
+        <i class="fa fa-user my-user"></i>
+        <input type="email" id="fmail" name="fmail" placeholder="ایمیل" class="input-Item" />
+      </div>
+      <br />
+      <div class="container-icon">
+        <i class="fa fa-envelope my-user"></i>
+        <input type="password" id="fpass" name="fpass" placeholder="رمز عبور" class="input-Item" />
+      </div>
+      <br /><br />
+      <button type="button" class="button-login" id="button-login"
+        onclick="loginPerson(document.getElementById('fmail').value,document.getElementById('fpass').value)">
+        Login
+      </button>
+      <p class="info">
+        ثبت&nbspنام نکرده&nbspاید
+        <a href="./register.html" target="_self">کلیک کنید</a>
+      </p>
+    </form>
+  </div>
+  <script src="/js/register.js"></script>
+  <script>
+    let loginPerson = async (email, password) => {
+      let e = document.getElementById("button-login");
+      let success = `      
         <div class="alert alert-success alert-dismissible">
         <button type="button" class="close" data-dismiss="alert">
           &times;
         </button>
         ورود با موفقیت انجام شد!
       </div>`;
-        let eror = `      
+      let eror = `      
         <div class="alert alert-danger alert-dismissible">
         <button type="button" class="close" data-dismiss="alert">
           &times;
         </button>
         اطلاعات نادرست است!
       </div>`;
-        let user = getUser();
-        console.log(user);
-        let str = false;
-        for (let x in user) {
-          if (user[x].email == email) {
-            if (user[x].password == password) {
-              localStorage.setItem("userlogin", true);
-              localStorage.setItem("username", user[x].username);
-              e.insertAdjacentHTML("afterend", success);
-              let redirectToPayment = JSON.parse(
-                localStorage.getItem("redirectToPayment") || "[]"
-              );
-              if (redirectToPayment == true) {
-                localStorage.setItem("redirectToPayment", false);
-                window.location.href = "/payment.html";
-                str = true;
-                return;
-              }
-              location.assign("./dashboard.html");
-              str = true;
-              return;
-            } else {
-              alert("password is wrong");
-              e.insertAdjacentHTML("afterend", passEror);
-              str = true;
-              break;
-            }
+
+      const data = { "Email": email, "Password": password }
+
+      fetch('http://127.0.0.1:3001/login', {
+        method: 'POST', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => {
+          if (data.status == 404) {
+            e.insertAdjacentHTML("afterend", eror);
+            console.log('404:', data)
           }
-        }
-        if (str == false) {
-          alert("failed");
-          e.insertAdjacentHTML("afterend", eror);
-        }
-      };
-    </script>
-  </body>
+          else return response.json()
+        })
+        .then((data) => {
+          // TODO: Do success stuff here
+          localStorage.setItem("userlogin", true);
+          localStorage.setItem("username", data.user.Name);
+          e.insertAdjacentHTML("afterend", success);
+          let redirectToPayment = JSON.parse(
+            localStorage.getItem("redirectToPayment") || "[]"
+          );
+          if (redirectToPayment == true) {
+            localStorage.setItem("redirectToPayment", false);
+            window.location.href = "/payment.html";
+          }
+          else {
+            location.assign("./dashboard.html");
+          }
+          console.log('Success:', data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    };
+  </script>
+</body>
+
 </html>
