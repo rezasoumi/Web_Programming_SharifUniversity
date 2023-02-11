@@ -31,8 +31,8 @@ function registerAccount(name, passport, email, pass) {
   })
     .then((response) => response.json())
     .then((data) => {
-      location.assign("./login.html");
       console.log("Success:", data);
+      location.replace("./login.html");
     })
     .catch((error) => {
       console.error("Error:", error);
