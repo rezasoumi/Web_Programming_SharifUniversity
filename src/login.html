@@ -66,16 +66,17 @@
         body: JSON.stringify(data),
       })
         .then((response) => {
-          if (data.status == 404) {
+          if (response.status == 404) {
             e.insertAdjacentHTML("afterend", eror);
-            console.log('404:', data)
+            console.log('404:', response)
           }
           else return response.json()
         })
         .then((data) => {
-          // TODO: Do success stuff here
           localStorage.setItem("userlogin", true);
           localStorage.setItem("username", data.user.Name);
+          localStorage.setItem("JWTtoken", data.token);
+          
           e.insertAdjacentHTML("afterend", success);
           let redirectToPayment = JSON.parse(
             localStorage.getItem("redirectToPayment") || "[]"

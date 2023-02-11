@@ -32,7 +32,7 @@ tickets.forEach((ticket, i) => {
     const mainElement = document.createElement('tr');
     mainElement.className = 'collapsible';
     mainElement.innerHTML = `
-    <th scope="row">${i+1}</th>
+    <th scope="row">${i + 1}</th>
     <td>${main.name}</td>
     <td>${main.code}</td>
     <td>${main.flightDate}</td>
@@ -63,4 +63,23 @@ tickets.forEach((ticket, i) => {
     };
 });
 
-document.getElementById("dash-username")!.innerHTML = localStorage.getItem("username")!;
+const token = localStorage.getItem("JWTtoken");
+fetch('http://127.0.0.1:3001/info', {
+    headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+    }
+}).then((response) => {
+    if (response.status == 400) {
+        localStorage.setItem("userlogin", true.toString());
+        localStorage.removeItem("username");
+        localStorage.removeItem("JWTtoken");
+        location.replace("./login.html");
+    }
+    else return response.json()
+}).then((data) => {
+    document.getElementById("dash-username")!.innerHTML = data.Name
+    console.log('Info:', data);
+}).catch((error) => {
+    console.error('Error:', error);
+});

@@ -5,5 +5,20 @@ if (login === "false") {
 }
 function exitPerson() {
   localStorage.setItem("userlogin", false);
-  location.replace("./index.html");
+  localStorage.removeItem("username");
+
+  const token = localStorage.getItem("JWTtoken");
+  localStorage.removeItem("JWTtoken");
+
+  fetch("http://127.0.0.1:3001/logout", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((response) => location.replace("./index.html"))
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
