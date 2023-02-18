@@ -9,4 +9,4 @@ RUN npm i
 
 COPY . .
 
-CMD ["npx", "webpack", "serve", "--host", "0.0.0.0"]
+CMD ["npx", "webpack", "serve", "--host", "0.0.0.0", "--allowed-hosts", "all"]

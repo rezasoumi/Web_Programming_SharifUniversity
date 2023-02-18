@@ -18,11 +18,11 @@ const di = document.getElementById('dashboard-items')!;
 
 ////////////////////////////////////////////////////////////////////////
 // user Id must get from parsa 
-const data: UserId = {
+/* const data: UserId = {
     userId: "123"
 };
 const r = post("/getAllPurchases", data);
-console.log(r);
+console.log(r);*/
 ////////////////////////////////////////////////////////////////////////
 
 const tickets: Ticket[] = JSON.parse(localStorage.getItem('bought-tickets') || '[]');
@@ -64,7 +64,7 @@ tickets.forEach((ticket, i) => {
 });
 
 const token = localStorage.getItem("JWTtoken");
-fetch('http://127.0.0.1:3001/info', {
+fetch('/api/auth/info', {
     headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
