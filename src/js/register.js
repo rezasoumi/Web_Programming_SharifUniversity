@@ -22,7 +22,7 @@ function registerAccount(name, passport, email, pass) {
     PassportNumber: passport,
     Password: pass,
   };
-  fetch("http://127.0.0.1:3001/signup", {
+  fetch("http://localhost:3001/signup", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
