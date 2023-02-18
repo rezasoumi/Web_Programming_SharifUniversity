@@ -10,7 +10,8 @@ function exitPerson() {
   const token = localStorage.getItem("JWTtoken");
   localStorage.removeItem("JWTtoken");
 
-  fetch("http://127.0.0.1:3001/logout", {
+  // http://127.0.0.1:3001/logout
+  fetch("api/auth/logout", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

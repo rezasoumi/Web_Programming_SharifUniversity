@@ -1,5 +1,6 @@
 export const post = async (url: string, data: unknown): Promise<any> => {
-  const resp = await fetch(`http://localhost:12345${url}`, {
+  // http://localhost:8001/
+  const resp = await fetch(`/api/ticket${url}`, {
     method: "POST",
     headers: {
       Accept: "application/json",
